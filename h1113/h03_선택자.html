@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding: 0; margin: 0;}
+        section{margin: 200px;}
+        /*하위(" "):아래로 모두 해당*/
+        /*자식(">"):자식만 해당*/
+        .sect ul li ul{color: blue; font-size: 20px; font-weight: 700;}
+        a[href]{color: red;}
+        input[type="text"]{color: pink;}
+
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="id">아이디</label>
+        <input type="text"><br>
+        <label for="pw">패스워드</label>
+        <input type="password"><br>
+    </form>
+    <section>
+        <div class="sect">
+            <ul>
+                <li><a href="#">구글</a>
+                    <ul>
+                        <li>유튜브</li>
+                        <li>안드로이드</li>
+                    </ul>
+                </li>
+
+                <li>다음</li>
+                <li>네이버</li>
+            </ul>
+         </div>    
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+            <ol>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ol>
+            
+    </section>   
+    
+</body>
+</html>
