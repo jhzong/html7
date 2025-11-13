@@ -12,13 +12,19 @@
         
         /*translate:이동 scale:크기 rotate:회전 skew:기울기*/
         img:hover{
-            transform: rotate(360deg); transition: 2s;
-            
-            
-            /*transform: scale(1.5);
+            backface-visibility: visible;
             transition: 2s;
-            transform: translate3d(200px, 0, 200px);
-            transform-origin: left top;
+            perspective: 900;
+            transform: rotateX(360deg);
+            
+            /*
+            transition: 2s; <-animation재생시간
+            transform: scale(1.5);
+            transform: translate3d(200px, 0, 200px); <-xyz이동
+            transform: rotate(360deg); 
+            transform: skew(10deg); 
+            transform-origin: left top; <-회전축
+            perspective: 900; <-깊이감
             */
         }
     </style>
