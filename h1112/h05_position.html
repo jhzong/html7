@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position</title>
+    <style>
+        *{padding: 0; margin: 0;}
+        .main{width: 800px; height: 800px;
+        border: 5px solid black;
+        position: relative; top: 100px; left: 100px;}
+        div{width: 200px; height: 200px; border: 1px solid black;
+        font-size: 30px; text-align: center; line-height: 100px;}
+        
+        .c01{background: aquamarine;
+        position: relative; top: 250px; left: 300px; z-index: 100;}
+        .c02{background: blue;
+        position: relative; top: 100px; left: 400px; z-index: 10;}
+        .c03{background: green;
+        position: absolute; top: 200px; left: 350px; z-index: 2;}
+        .c04{background: pink;
+        position: absolute; top: 150px; left: 450px; z-index: 30;}
+        .c05{background: yellow;
+        position: absolute; top: 700px; left: 700px; }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="c01">1</div>
+        <div class="c02">2</div>
+        <div class="c03">3</div>
+        <div class="c04">4</div>
+        <div class="c05">5</div>
+    </div>
+</body>
+</html>

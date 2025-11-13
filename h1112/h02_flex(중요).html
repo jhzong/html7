@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>플렉스</title>
+    <style>
+        *{padding: 0; margin: 0; list-style: none;}
+        #main{width: 700px; height: 200px; border: 1px solid black;
+            margin: 100px; background: #eee;
+            display: flex; 
+            flex-wrap:  wrap;
+            /*wrap:여러줄표시(하단으로) nowrap:1에 표시 wrap-reverse:여러줄표시(상단으로)*/
+            /*flex-direction: row;*/
+            /*row:가로(행) column:세로(열) ~-reverse:역순*/                   
+            justify-content: space-between ;/*justify가로정렬*/
+            /*flex-start/end:시작/끝 지점에 몰아배치
+            center:중앙에 배치
+            space-around/between:(좌우)box 양변간격/사이간격 벌리기*/
+            align-items: center;/*align세로정렬*/
+            /*center:중앙 stretch:늘려서 채우기(height값이 없을때)*/
+            align-content: flex-end;
+            /*flex-start/end:상단/하단에 몰아정렬
+            space-around/between:(상하)box 양변간격/사이간격 벌리기
+            */
+        }
+        div{width: 180px; height: 80px; border: 1px solid red;}
+        /*order:순서배치바꿈*/
+        /*.c01{order: 1;}
+        .c02{order: 4;}
+        .c03{order: 5;}
+        .c04{order: 3;}
+        .c05{order: 2;}*/
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="c01">1</div>
+        <div class="c02">2</div>
+        <div class="c03">3</div>
+        <div class="c04">4</div>
+        <div class="c05">5</div>
+    </div>
+
+</body>
+</html>
