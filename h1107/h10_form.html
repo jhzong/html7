@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type='button']{background: #efefef; width: 100px; height: 40px;
+                            border: 1px solid #b4b4b4;}
+        input[type='button']:hover{background: #e20303; border: 1px solid #ff8080;}
+    </style>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form action="#" method="get">
+        <!-- autofocus:자동 포커스 placeholder:도움말 -->
+        <label for="">아이디</label>
+        <input type="text" name="id" id="" value="admin">
+        <br>
+        <label for="">패스워드</label>
+        <input type="password" name="pw" id="" required autofocus><span>*8자리 이상</span>
+        <br>
+        <label for="">패스워드확인</label>
+        <input type="password" name="pw2" id="" >
+        <br>
+        
+        <label for="">이름</label>
+        <input type="text" name="name">
+        <br>
+        
+        <!-- checkbox와 radio는 꼭 value값 넣기(초기 선택지 checked) -->
+        <label for="">성별</label>
+        <br>
+        <input type="radio" id="man" name="gender" value="남자">
+        <label for="man">남자</label>
+        <input type="radio" id="woman" name="gender" value="여자">
+        <label for="woman">여자</label>
+        <input type="radio" id="non binary" name="gender" value="중성" checked>
+        <label for="non binary">중성</label>
+        <br>
+    
+        <label for="">취미</label>
+        <br>
+        <input type="checkbox" id="game" name="hobby" value="게임">
+        <label for="game">게임</label>
+        <input type="checkbox" id="golf" name="hobby" value="골프">
+        <label for="golf">골프</label>
+        <input type="checkbox" id="swim" name="hobby" value="수영" checked>
+        <label for="swim">수영</label>
+        <input type="checkbox" id="run" name="hobby" value="조깅">
+        <label for="run">조깅</label>
+        <br>
+        <select name="major" id="">
+            <!-- selected -->
+            <option value="#">과를 선택</option>
+            <option value="computer">컴공</option>
+            <option value="electricity">전공</option>
+            <option value="history" selected>역사</option>
+        </select>
+        <br>
+        
+        <label for="">달력</label>
+        <input type="date" name="day">
+        <br>
+        <label for="">날짜시간</label>
+        <input type="datetime-local" name="daytime">
+        <br>
+        <input type="file" name="nfile">
+        <br>
+        <label for="">자기소개</label>
+        <br>
+        <textarea name="intro" id="" cols="80" rows="15" placeholder="80자"></textarea>
+        <br>
+        <input type="submit" value="회원가입">
+        <input type="reset" value="취소지우지">
+
+
+    </form>
+
+
+</body>
+</html>

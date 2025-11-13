@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            table,td,th{border: 2px solid black; border-collapse: collapse; text-align: center;}
+            td,th{width: 200px; height: 50px;}
+            thead,tfoot{background-color: #e7e7e7; font-weight: bold;}
+
+        </style>
+    </head>
+    <body>
+        <ul>
+            <!-- a태그:링크연결,href속성:주소 -->
+            <li><a href="http://www.daum.net" target="_blank">다음</a></li>
+            <li><a href="image/nct_wish_01.jpg" download>NCT_Wish</a></li>
+        </ul>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <td>방이름</td>
+                    <td>대상</td>
+                    <td>크기</td>
+                    <td>가격</td>
+                </tr>
+            </thead>
+            <tr>
+                <td>유채방</td>
+                <td>여성 도미토리</td>
+                <td rowspan="3">4인실</td>
+                <th rowspan="4">1인 20,000원</th>
+            </tr>
+            <tr>
+                <td rowspan="2">동백방</td>
+                <td>동성 도미토리</td>
+            </tr>
+            <tr>
+                <td>가족 1팀</td>
+            </tr>
+            <tr>
+                <td>천혜향방</td>
+                <td>-</td>
+                <td>2인실</td>
+            </tr>
+            <tfoot>
+                <tr>
+                    <td colspan="4">바깥채 전체를 렌트합니다</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>

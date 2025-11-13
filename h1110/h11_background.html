@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding: 0; margin: 0;}
+        #d01{
+            width: 40px; height: 40px; border: 1px solid black;
+            background-image: url(image/ico_set.png);
+            background-position: -26px 3px;/*수동정렬*/
+            background-size: 800px;
+            }
+        #d01:hover{
+            width: 40px; height: 40px; border: 1px solid black;
+            background-image: url(image/ico_set.png);
+            background-position: -63px 3px;/*수동정렬*/
+            background-size: 800px;
+            }
+        
+        /*img/url,repeat,position은 한줄로 묶을수있음*/
+        div{
+            width: 22px; height: 22px;
+            background: url(image/ico_set.png) no-repeat -2px -42px;
+            background-size: 800px;
+        }
+        div:hover{
+            width: 22px; height: 22px;
+            background: url(image/ico_set.png) no-repeat -30px -42px;
+            background-size: 800px;
+        }
+        
+        #d02{
+            width: 600px; height: 340px;
+            border: 25px dotted black;
+            background: url(image/nct_wish_01.jpg) no-repeat;
+            background-origin: content-box;
+            /*contain:전체이미지(비율보정X)*/
+            /*cover:공백없이 채움(비율보정X)*/
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div id="d01"></div>
+    <div></div>
+    <div id="d02"></div>
+</body>
+</html>

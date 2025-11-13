@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css수업</title>
+    <style>
+        /*선택자 priority- (0.inline(권장X)) 1.id, 2.class, 3.tag, 4.전체*/
+        /*전체선택자*/
+        *{padding: 0; margin: 0;}
+        /*tag선택자*/
+        h1{color: blue;}
+        p{font-size: 20px;}
+        /*class선택자-여러지점에 적용시 사용하는 선택자*/
+        .c_all{background: yellow;}
+        /*id선택자-한 지점만 적용*/
+        #tl{color: red;}
+        span{color: green;}
+
+    </style>
+
+</head>
+<body>
+    <h1 id="tl">헤드라인 뉴스</h1>
+    <h1 class="c_all">젠슨 황도 "페이커!" 숭배…롤드컵 사상 첫 3연패 역사 썼다</h1>
+    <p>세계 최대 e스포츠대회인 리그 오브 레전드(LoL·롤) 월드 챔피언십(줄여서 월즈)에서 T1의 페이커(이상혁)가 ‘전설’이 됐다.</p>
+    <hr>
+
+    <h1>백신으로 해킹 덮은 KT에 …“국민 기만” “부도덕 기업” 비판 확산</h1>
+    <p class="c_all">KT를 25년째 이용해온 30대 직장인 최모씨는 최근 잇따른 KT 해킹 관련 보도를 볼 때마다 답답함을 느낀다. 불법 초소형 기지국(펨토셀)을 통한 무단 소액결제 피해는 없었지만, 지난해 다수의 서버가 악성코드에 감염된 사실이 알려지자 자신의 개인정보도 새어 나갔을지 모른다는 불안이 커졌다. 그는 “개인정보 유출 여부조차 알리지 않는 KT의 태도에 장기 고객으로서 배신감을 느낀다”고 말했다. 악성코드 감염 뒤 이 사실을 숨겨온 데 대해선 “부도덕한 기업이라는 생각까지 하게 됐다”고 했다.</p>
+    <hr>
+
+    <h1>ETRI, 기능·품질 동시 보장하는 AI 코드 생성 기술 개발</h1>
+    <p class="c_all"><span>(대전=뉴스1)</span> 김종서 기자 = 한국전자통신연구원(ETRI)은 대규모 언어모델(LLM)을 활용해 소스코드를 보다 정확하고 안전하게 생성할 수 있는 핵심 기술을 개발했다고 10일 밝혔다.</p>
+    <hr>
+</body>
+</html>

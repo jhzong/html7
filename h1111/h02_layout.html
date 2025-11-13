@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding: 0; margin: 0;}
+        span,div{border: 8px solid black;}
+        span{width: 200px; height: 100px;display: inline-block;}/*inline->block*/
+        div{width: 50%; height: 100px; margin: 30px;
+        box-sizing: border-box;/*외각선px까지 감안해 보정*/
+        }
+        #s02{display: none;}
+        #d02:hover{display: none;}
+        #d03{border-width: 8px 18px 28px 18px;}
+    </style>
+</head>
+<body>
+    <!-- inline요소 : width/height설정 X,수평으로 배치
+     (<span>,<a>,<img>,<em>,<strong>,<form(내부)>...) -->
+    <span>1</span>
+    <span id="s02">2</span>
+    <span>3</span>
+    <!-- block요소 : width/height설정 O,하단으로 배치
+     (<div>,<h1>~<h6>,<p>,<ul>,<li>,<form>...) -->
+    <div>1</div>
+    <br>
+    <div id="d02">2</div>
+    <div id="d03">3</div>
+</body>
+</html>
