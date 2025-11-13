@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형웹</title>
+    <style>
+        *{padding: 0; margin: 0;}
+        .main{width: 100%; margin: 0 auto; font-size: 30px; text-align: center;}
+        header{width: 100%; height: 200px; background: green;}
+        section{width: 100%; height: 600px; display: flex;}
+        article{width: 80%; background: yellow;}
+        aside{width: 20%; background: red;}
+        footer{width: 100%; height: 300px; background: blue;}
+        /*1em=16px*/
+        /*media query:화면 넓이에 따라 배치를 변경*/
+        @media screen and (max-width:1000px){
+            section{display: block;}
+            aside{width: 100%; height: 20%;}
+            article{width: 100%; height: 80%;}
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <header>상단</header>
+        <section>
+            <article>내용</article>
+            <aside>사이드바</aside>
+        </section>
+        <footer>하단</footer>
+    </div>
+</body>
+</html>

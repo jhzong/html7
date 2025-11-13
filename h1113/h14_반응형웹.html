@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding: 0; margin: 0;}
+        header{width: 100%; height: 300px;
+        border: 1px solid black;
+    }
+        nav{width: 1600px; height: 300px;
+        
+        margin: 0 auto;
+        
+    }
+    /*media query:화면 넓이에 따라 배치를 변경*/
+        @media screen and (min-width:1200px){
+            nav{background: purple;}
+        }
+        @media screen and (max-width:1200px){
+            nav{background: yellow;}
+        }
+        @media screen and (max-width: 1000px){
+            nav{background: green;}
+        }
+        @media screen and (max-width:800px){
+            nav{background: blue;}
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav></nav>
+    </header>
+</body>
+</html>
