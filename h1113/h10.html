@@ -7,12 +7,21 @@
     <style>
         *{padding: 0; margin: 0;}
         .c01{
-            width: 100px; height: 100px; background: red;
-            animation-name: rotate;
-            animation-duration: 2s;
+            width: 100px; height: 100px;
+            border: 1px solid black;
+            animation: rotate 2s infinite alternate, back 1s infinite alternate;
         }
-        
+        @keyframes rotate {
+            from{transform: perspective(100px) rotateX(0) rotateY(0);}
+            50%{transform: perspective(100px) rotateX(-180deg) rotateY(0);}
+            to{transform: perspective(100px) rotateX(-180deg) rotateY(-180deg);}
+        }
+        @keyframes back{
+            from{background: red;}
+            50%{background: green;}
+            to{background: blue;}
 
+        }
 
 
     </style>
