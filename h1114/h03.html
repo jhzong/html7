@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리솜리조트 샘플</title>
+    <style>
+        *{padding: 0; margin: 0;}
+        ol,ul{list-style: none;}
+        a{text-decoration: none; color: inherit;}
+        
+        header{width: 100%; height: 121px; border-bottom: 1px solid #e8e8e8;}
+        
+        .menu{width: 1290px; height: 121px; margin: 0 auto; display: flex;}
+        
+        .logo{width: 132px; height: 121px; display: flex; align-items: center;}
+        .logo img{width: 132px; height: 45px;}
+        
+        nav{width: 1158px; height: 121px;}
+        /*t_menu css 만들기*/
+        .t_menu{height: 51px;}
+        .t_menu ul{height: 51px; display: flex; justify-content: flex-end; align-items: center;
+        font-size: 12px; font-weight: 400; color: #8a8d8f;
+        }
+        .t_menu ul li:after{
+            content: '|';
+            display: inline-block;
+            color: #d3d3d3;
+            margin-left: 0 13px;
+            font-size: 10px;
+        }
+        .t_menu ul li:last-child:after{
+            content: '';
+            margin-right: 13px;
+        }
+        
+        /*m_menu css 만들기*/
+        .m_menu{height: 70px;}
+        .m_menu ul{height: 70px; display: flex; justify-content: flex-end; align-items: center;
+        font-size: 19px; font-weight: 500; color: #1d1d1d;
+        }
+        .m_menu ul li{padding-left: 90px;}
+        .m_menu ul li:last-child:after{
+            content: '';
+            margin-right: 13px;
+        }
+        .m_menu span:hover{ color: #718929; border-bottom: #718929 3px solid; padding: 31px 0 20px;}
+
+        /*topdown_menu*/
+        /*.BB{width: 100%; height: 306px; 
+            border: 1px solid black;}
+        
+        .topdown_m{display: flex; justify-content: flex-end;
+            width: 1290px; height: 306px; margin: 0 auto;
+            border: 1px solid black;
+            margin: 0 auto;}*/
+        
+        /*topdown_포레스트*/
+        /*.tm01{width: 100px; height: 306px;
+            border: #1d1d1d 1px solid;}*/
+        /*topdown_*/
+        /*.tm02{width: 100px; height: 306px; margin-left: 55px;
+            border: #1d1d1d 1px solid;}
+        .tm03{width: 100px; height: 306px; margin-left: 25px;
+            border: #1d1d1d 1px solid;}
+        .tm04{width: 100px; height: 306px; margin-left: 25px;
+            border: #1d1d1d 1px solid;}
+        .tm05{width: 100px; height: 306px; margin-left: 77px;
+            border: #1d1d1d 1px solid;}
+        .tm06{width: 100px; height: 306px; margin-left: 57px;
+            border: #1d1d1d 1px solid;}*/
+
+
+        .sub_nav{width: 1000px; height: 164px; margin: 0 auto;
+            border: 1px solid black; 
+            align-items: center; align-content: space-between;}
+        
+        .address{height: 39px; border: 1px solid black;}
+        .address ul{display: flex; justify-content: end;}
+        
+        .title{height: 40px; border: 1px solid black;}
+        
+        .search{height: 30px; display: flex; justify-content: end;
+            border: 1px solid black;}
+        
+        table,th,td{width: 1000px; height: 46px; margin: 0 auto;
+            border: 1px solid black; border-collapse: collapse;}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <div class="logo">
+                <img src="image/img_logo_re_forest.png" alt="">
+            </div>
+            <nav>
+                <div class="t_menu">
+                    <ul>
+                        <li>회원예약</li>
+                        <li>패키지예약</li>
+                        <li>부대시설예약</li>
+                        <li>회원가입</li>
+                        <li>로그인</li>
+                    </ul>
+                </div>
+                <div class="m_menu">
+                    <ul>
+                        <li><span>포레스트</span></li>
+                        <li><span>스파</span></li>
+                        <li><span>객실</span></li>
+                        <li><span>특별한경험</span></li>
+                        <li><span>부대시설</span></li>
+                        <li><span>브랜드소개</span></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!---------------- topdown_m ---------------->
+        <!-- <div class="BB">backboard
+            <div class="topdown_m">
+                <div class="tm01">
+                    <ul>
+                        <li>소개</li>
+                        <li>뉴스</li>
+                        <li>스토리</li>
+                        <li>오시는길</li>
+                    </ul>
+                </div>
+                <div class="tm02">
+                    <ul>
+                        <ul>해브나인
+                            <li>스파시설</li>
+                            <li>편의시설</li>
+                        </ul>
+                        <ul>온미당
+                            <li>찜질시설</li>
+                            <li>편의시설</li>
+                        </ul>
+                        <li>이용안내</li>
+                    </ul>
+                </div>
+                <div class="tm03">
+                    <ul>포레스트리솜
+                        <li>S25</li>
+                        <li>S30</li>
+                        <li>G40</li>
+                        <li>G50</li>
+                        <li>G70</li>
+                    </ul>
+                    <li>레스트리</li>
+                    <li>이용안내</li>
+                </div>
+                <div class="tm04">
+                    <ul>
+                        <li>리오프로그램</li>
+                        <li>이벤트</li>
+                        <li>무유공간</li>
+                        <li>트레킹코스</li>
+                        <li>주변관광지</li>
+                    </ul>
+                </div>
+                <div class="tm05">
+                    <ul>
+                        <li>식음시설</li>
+                        <ul>연회시설
+                            <li>포레스트</li>
+                            <li>레스트리</li>
+                        </ul>
+                        <li>문화시설</li>
+                    </ul>
+                </div>
+                <div class="tm06">
+                    <ul>
+                        <li>레스트리</li>
+                        <li>아일랜드리솜</li>
+                        <li>스플라스리솜</li>
+                        <li>퍼시픽리솜</li>
+                    </ul>
+                </div>
+            </div>    
+        </div> -->
+    </header>
+    
+    <section>
+        <div class="sub_nav">
+            <div class="address">
+                <ul>
+                    <li>HOME</li>
+                    <li>포레스트</li>
+                    <li>뉴스</li>
+                </ul>
+            </div>
+            <div class="title">
+                <h3>뉴스</h3>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="검색어 입력">
+                <button>검색</button>
+            </div>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>리조트</th>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>유아용 웨건 '폼포라(pompolarr)' 무료 대여 서비스</td>
+                    <td>포레스트</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>유아용 웨건 '폼포라(pompolarr)' 무료 대여 서비스</td>
+                    <td>포레스트</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>유아용 웨건 '폼포라(pompolarr)' 무료 대여 서비스</td>
+                    <td>포레스트</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>유아용 웨건 '폼포라(pompolarr)' 무료 대여 서비스</td>
+                    <td>포레스트</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>유아용 웨건 '폼포라(pompolarr)' 무료 대여 서비스</td>
+                    <td>포레스트</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>유아용 웨건 '폼포라(pompolarr)' 무료 대여 서비스</td>
+                    <td>포레스트</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>유아용 웨건 '폼포라(pompolarr)' 무료 대여 서비스</td>
+                    <td>포레스트</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>유아용 웨건 '폼포라(pompolarr)' 무료 대여 서비스</td>
+                    <td>포레스트</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>유아용 웨건 '폼포라(pompolarr)' 무료 대여 서비스</td>
+                    <td>포레스트</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>유아용 웨건 '폼포라(pompolarr)' 무료 대여 서비스</td>
+                    <td>포레스트</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</body>
+</html>
