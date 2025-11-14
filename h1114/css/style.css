@@ -37,6 +37,28 @@ font-size: 18px;
 cursor: pointer;
 }
 
+/*banner menu*/
+a{text-decoration: none; color: inherit;}
+.banner{width: 100%; height: 320px;
+background: url(../image/bg_topBg1_2.jpg);/*"../":상위폴더로 나가는 명령어*/
+}
+nav{width: 100%; height: 80px; border-bottom: 1px solid #f0f0f0;
+    box-sizing: border-box;
+}
+nav ul{display: flex; list-style: none; justify-content: center;
+width: 900px; height: 80px; margin: 0 auto;
+}
+
+nav ul li{width: 150px; height: 80px; text-align: center;
+  font-size: 19px; font-weight: 500; color: #1d1d1d;
+letter-spacing: -.5px; line-height: 80px;
+}
+nav ul li:nth-child(2){width: 60px;}
+nav ul li:nth-child(3){width: 120px;}
+
+nav ul li a{display: inline-block; height: 77px;}
+nav ul li a:hover{border-bottom: 3px solid #718929; color: #718929;}
+
 /* Board Container */
 .board-container {
 max-width: 1000px;
