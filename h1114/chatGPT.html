@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>공지사항</title>
+<style>
+    body {
+        font-family: 'Apple SD Gothic Neo', sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+    .top-menu {
+        text-align: right;
+        padding: 10px 20px;
+        border-bottom: 1px solid #ddd;
+        font-size: 14px;
+    }
+    .top-menu a {
+        text-decoration: none;
+        color: #333;
+        margin-left: 10px;
+    }
+    h2 {
+        text-align: center;
+        margin: 40px 0 20px 0;
+    }
+    table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    table th, table td {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 12px;
+    }
+    table th {
+        background: #fafafa;
+        font-weight: bold;
+    }
+    .pagination {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .pagination a {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 0 3px;
+        border: 1px solid #ddd;
+        text-decoration: none;
+        color: #333;
+    }
+    .pagination a.active {
+        background: #0068ff;
+        color: #fff;
+        border-color: #0068ff;
+    }
+    .search-box {
+        text-align: center;
+        margin: 20px 0 60px 0;
+    }
+    .search-box input {
+        width: 200px;
+        padding: 7px;
+        border: 1px solid #ccc;
+    }
+    .search-box button {
+        padding: 7px 15px;
+        background: #0068ff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+        color: #666;
+        font-size: 13px;
+        border-top: 1px solid #ddd;
+    }
+</style>
+</head>
+<body>
+
+<div class="top-menu">
+    <a href="#">회원가입</a> | 
+    <a href="#">로그인</a> | 
+    <a href="#">주문조회</a> | 
+    <a href="#">최근본상품</a>
+</div>
+
+<h2>공지사항</h2>
+
+<table>
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회수</th>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>[공지] 추석 연휴 배송 안내</td>
+        <td>관리자</td>
+        <td>2025-09-05</td>
+        <td>123</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>9월 신규 회원 이벤트 안내</td>
+        <td>운영팀</td>
+        <td>2025-09-01</td>
+        <td>98</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>[점검] 사이트 정기 점검 안내</td>
+        <td>관리자</td>
+        <td>2025-08-28</td>
+        <td>211</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>배송비 정책 변경 안내</td>
+        <td>관리자</td>
+        <td>2025-08-20</td>
+        <td>156</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>홈페이지 리뉴얼 오픈!</td>
+        <td>운영팀</td>
+        <td>2025-08-10</td>
+        <td>324</td>
+    </tr>
+</table>
+
+<div class="pagination">
+    <a href="#">«</a>
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">»</a>
+</div>
+
+<div class="search-box">
+    <input type="text" placeholder="검색어 입력">
+    <button>검색</button>
+</div>
+
+<footer>
+    Copyright © VLAST Shop. All rights reserved.
+</footer>
+
+</body>
+</html>
