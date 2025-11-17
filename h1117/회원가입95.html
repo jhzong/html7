@@ -226,6 +226,8 @@
         width: 100%;
       }
     }
+    .on{color: blue;}
+    .off{color: red;}
   </style>
 </head>
 <body>
@@ -267,11 +269,11 @@
         </tr>
         <tr>
           <td>비밀번호 <span style="color:red"></span></td>
-          <td><input type="password" id="pw" onkeyup="pwBtn()" placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자"></td>
+          <td><input type="password" id="pw" onkeyup="pwBtn()" placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자~16자"></td><br>
         </tr>
         <tr>
           <td>비밀번호 확인 <span style="color:red"></span></td>
-          <td><input type="password" id="pw2" onkeyup="pwBtn()"><br><br>
+          <td><input type="password" id="pw2" onkeyup="pwBtn()"><br>
           <span id="pwTxt"></span>
           </td>
         </tr>
@@ -328,10 +330,19 @@
   </div>
   <script>
     function pwBtn(){
-      console.log('click confirm')
-      console.log(document.querySelector('#pw').value)
-      console.log(document.querySelector('#pw2').value)
-    }
+      console.log('pw:',document.querySelector('#pw').value);
+      console.log('pw2:',document.querySelector('#pw2').value);
+      let pw1=document.querySelector('#pw').value;
+      let pw2=document.querySelector('#pw2').value;
+      
+      if(pw1==pw2){
+        console.log('match')
+        document.querySelector('#pwTxt').innerHTML='<span class="on">비번일치</span>';
+      }else{
+        console.log('no match')
+        document.querySelector('#pwTxt').innerHTML='<span class="off">비번불일치</span>';
+      };
+    }//pwBtn()
 
     document.querySelector('#pwTxt').innerText ='비밀번호를 확인바랍니다.';
   </script>

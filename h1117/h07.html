@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //A 90 B 80 C 70 D 60 F
+        /*
+        var s=prompt('enter your score>>')
+        if(s>=90){
+            document.write('A')
+        }else if(s>=80){
+            document.write('B')
+        }else if(s>=70){
+            document.write('C')
+        }else if(s>=60){
+            document.write('D')
+        }else{
+            document.write('F')
+        };
+        if(s>=90) document.write('A');
+        else if(s>=80) document.write('B');
+        else if(s>=70) document.write('C');
+        else if(s>=60) document.write('D');
+        else document.write('F');
+        */
+
+        function loginBtn(){
+            //alert('!!!')
+            //aaa 1111 success 
+            console.log('ID:',document.querySelector('#id').value)
+            console.log('PW:',document.querySelector('#pw').value)
+            let id=document.querySelector('#id').value
+            let pw=document.querySelector('#pw').value
+            //&&:and, ||:or
+            /*
+            if(id=='aaa'&&pw==1111){
+                alert('login success')
+            }else
+            
+            {
+                alert('invalid ID or PW')
+            };
+            */
+             
+            if(id=='aaa'&&pw==1111){
+                if(pw==1111){
+                    alert('login success')
+                }else{
+                    alert('invalid PW')
+                }
+            }else{
+                alert('invalid ID')
+            };
+
+
+        }
+    </script>
+    <label for="">ID</label>
+    <input type="text" id="id"><br>
+    <label for="">PW</label>
+    <input type="text" id="pw"><br>
+    <button type="button" onclick="loginBtn()">login</button>
+</body>
+</html>

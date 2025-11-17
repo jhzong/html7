@@ -9,23 +9,27 @@
     <label id="labelTxt">비번</label>
     <input type="text" id="pw"><br>
     <label>비번확인</label>
-    <input type="text" id="pw2"><br>
+    <input type="text" id="pw2" onkeyup="loginBtn()"><br>
+    <span id="txt"></span><br>
     <button type="button" onclick="loginBtn()">로그인</button>
     <!-- onclick:클릭 onkeyup:타이핑 -->
 
     <script>
         function loginBtn(){
-            alert('!!!')
-            console.log(document.querySelector('#pw').value);
-            console.log(document.querySelector('#pw2').value);
+            //alert('!!!')
+            console.log("pw : ",document.querySelector('#pw').value);
+            console.log("pw2 : ",document.querySelector('#pw2').value);
             //console.log(document.querySelector('#labelTxt').innerText);
             var pw1=document.querySelector('#pw').value;
             var pw2=document.querySelector('#pw2').value;
             if(pw1==pw2){
+                document.querySelector('#txt').innerHTML='<span style="color:blue">비번일치</span>'
                 console.log('비번일치');
             }else{
+                document.querySelector('#txt').innerHTML='<span style="color:red">비번불일치</span>'
                 console.log('비번불일치');
             };
+            
         }//loginBtn()
     </script>
 </body>
