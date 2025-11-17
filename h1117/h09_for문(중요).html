@@ -13,10 +13,6 @@
 <body>
     <script>
         /*
-        for i in range(10):
-            print(i)
-            */
-        /*
         var sum=0;
         for(var i=0;i<=100;i++){
             sum+=i;
@@ -82,10 +78,11 @@
         //구구단
         console.log(document.querySelector('#tbody'));
         
-        var tbody=document.querySelector('#tbody');
+        var tbody=document.querySelector('#tbody');//id 위치를 찾아 'tbody'로 변수 선언
         
         for(var i=2;i<=9;i++){
-            tbody.innerHTML+=`
+            tbody.innerHTML+=
+            `
             <tr>
                 <td colspan=5>[${i}단]</td>
             <tr>
