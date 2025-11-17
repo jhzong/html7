@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //타입변경-Number(),toString(),Boolean()
+        //JS특-문자열숫자끼리 (-,*,/) 여산시 자동 타입변환, 하지만 (+)는 문자열로 인식
+        //문자열+숫자=문자열타입으로 변환됨
+        /*
+        a=a+b > a+=b
+        b=++a > ++먼저 계산후 대입
+        b=a++ > 선대입후 ++ 계산
+        */
+        /*
+        var a=prompt('input number>>');//10
+        var b=prompt('input string>>');//20
+        document.write(a+b+'<br>');//1020
+        document.write(a*b+'<br>');//200-※예외(-,*,/)연산시 자동 타입변환(문자열이 숫자일때만)        
+                                   //하지만 타입변환이 원칙
+        document.write(Number(a)+Number(b)+'<br>');//30
+        document.write(typeof(a)+','+typeof(b));//stringstring
+        */
+        /*
+        var a=10,b=0;
+        b=++a;
+        document.write(a+','+b);
+        var c=10,d=0;
+        d=c++
+        document.write(c+','+d);
+        */
+        /**/
+        //prompt(),document.write()
+        let a=prompt('input a>>');
+        let b=prompt('input b>>');
+        document.write(Number(a)+Number(b)+'<br>');
+        document.write(Number(a)-Number(b)+'<br>');
+        document.write(Number(a)*Number(b)+'<br>');
+        document.write(Number(a)/Number(b)+'<br>');
+        
+
+    </script>
+</body>
+</html>
