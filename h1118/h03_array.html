@@ -63,12 +63,12 @@
         function keyBtn(event){
             console.log('입력된 키값:',event.keyCode)
             if(event.keyCode==13){
-                saveBtn(event);
+                saveBtn();
             }
 
         }//enter키와 saveBtn 연결
-        function saveBtn(event){
-            console.log(event.keyCode)
+        function saveBtn(){
+            
             //arr.push('김구');
             arr.push(document.querySelector('#name').value)
             console.log(arr)
