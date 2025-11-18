@@ -24,24 +24,45 @@
         }
         */
     
+        function keyBtn(){
+            if(event.keyCode==13){
+                saveBtn();
+            }
+        };
+        
         function conBtn(){
-            alert('!')
-            var txt=document.querySelector('#txt').innerText
-            console.log(txt)
+            alert('데이터 저장')
+            var txt=document.querySelector('#txt').value
+            var tbody=document.querySelector('#tbody')
             
-            var arr=txt.split(',')
-            console.log(arr)
-            document.querySelector('#tbody').innerHTML=
+            var arr=txt.split(",")
+            
+            console.log(txt)
+
+            //합계,평균
+            arr.push(Number(arr[2])+Number(arr[3])+Number(arr[4]))
+            arr.push((Number(arr[2])+Number(arr[3])+Number(arr[4]))/3)
+
+            
+
+            tbody.innerHTML+=
+            `
+                <td>${arr[0]}</td>
+                <td>${arr[1]}</td>
+                <td>${arr[2]}</td>
+                <td>${arr[3]}</td>
+                <td>${arr[4]}</td>
+                <td>${arr[5]}</td>
+                <td>${arr[6]}</td>
                 `
-                <td>1</td>
-                <td>홍길동</td>
-                <td>100</td>
-                <td>100</td>
-                `
+            document.querySelector('#txt').value=''
+            document.querySelector('#txt').focus()
+        
         };
     
     </script>
-    <div id="txt">1,홍길동,100,100</div>
+    <!-- <div id="txt">1,홍길동,100,100</div> -->
+    <input type="text" id="txt" onkeyup="keyBtn(event)">
     <button type="button" onclick="conBtn()">확인</button>
     <table>
         <tr>
@@ -49,6 +70,9 @@
             <th>이름</th>
             <th>국어</th>
             <th>영어</th>
+            <th>수학</th>
+            <th>합계</th>
+            <th>평균</th>
         </tr>
         <tbody id="tbody">
             <tr>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>학생성적프로그램</title>
+    <style>
+        table,th,td{border:1px solid black; border-collapse: collapse;}
+        th,td{width:100px; height:40px; text-align: center; }
+        #txt{width:400px; height:50px; border:1px solid black; }
+    </style>
+    <script>
+        $(function(){
+            console.log($('#1').html())
+            console.log($('#1').children().eq(1).text())
+            //$('#1').remove()
+            
+            
+            
+        })
+        
+        function updateBtn(){
+            //console.log($('#1').children().eq(1).text())
+            
+            //table에 있는 요소의 값을 찾아 input창에 넣기
+            $('#sno').val($('#1').children().eq(0).text())
+            $('#name').val($('#1').children().eq(1).text())
+            $('#kor').val($('#1').children().eq(2).text())
+            $('#eng').val($('#1').children().eq(3).text())
+            $('#math').val($('#1').children().eq(4).text())
+            //'성적저장' text 출력해 button '성적수정'으로 변경
+            //document.querySelector('#saveBtn').innerText='성적수정'
+            $('#sb').text('성적수정')
+
+            //'수정' button과 연동해 css 변경
+            $('input').css('background','yellow')
+        }
+
+        function saveBtn(){
+            alert('!')
+            console.log('버튼',document.getElementById('sb').innerText)
+            console.log('버튼2',$('#sb').text())
+
+            if($('#sb').text()=='성적수정'){
+                var sno= $('#sno').val()
+                $('#'+sno).html(
+                    `
+                    <td>1</td>
+                    <td>홍길동</td>
+                    <td>100</td>
+                    <td>90</td>
+                    <td>80</td>
+                    <td>270</td>
+                    <td>90.0</td>
+                    <td>
+                        <button type="button" id="update" onclick="updateBtn()">수정</button>
+                        <button type="button" id="del">삭제</button>
+                    </td>
+                    `)
+            }else{
+
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <form action="#" method="get">
+        <label for="">번호</label>
+        <input type="text" id="sno" name="sno"><br>
+        <label for="">이름</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="">국어</label>
+        <input type="text" id="kor" name="kor"><br>
+        <label for="">영어</label>
+        <input type="text" id="eng" name="eng"><br>
+        <label for="">수학</label>
+        <input type="text" id="math" name="math" onkeyup="keyBtn(event)"><br>
+        <button type="button" id="sb" onclick="saveBtn()">성적저장</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th>합계</th>
+            <th>평균</th>
+            <th>비고</th>
+        </tr>
+        <tbody id="tbody">
+            <tr id='1'>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>100</td>
+                <td>90</td>
+                <td>80</td>
+                <td>270</td>
+                <td>90.0</td>
+                <td>
+                    <button type="button" id="update" onclick="updateBtn()">수정</button>
+                    <button type="button" id="del">삭제</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

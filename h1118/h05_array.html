@@ -28,6 +28,12 @@
         var arr=['홍길동','유관순'];
         document.querySelector('#txt').innerHTML=arr;
         
+        function keyBtn(){
+            if(event.keyCode==13){
+                saveBtn();
+            }
+        };
+
         function saveBtn(){
             var name=document.querySelector('#name').value;
             arr.push(name)

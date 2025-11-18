@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        //선택자 #,.,text()-글자,html(),val()-input글자
+        //eq()-2촌관계 찾기
+        //parent():부모 children():자식 next():다음 prev():이전
+        //closest():가까운
+        //attr-속성값 읽기
+        $(function(){
+            console.log($('li'));
+            console.log($('li').eq(0).text());
+            console.log($('ul').children().eq(0).attr('id'));
+            console.log($('#li01').parent().html());
+            console.log($('#li01').parent().attr('id'));//속성:attr
+            console.log($('#li01').text())
+            console.log($('#li01').next().text())
+            console.log($('#li01').eq().text())
+            console.log($('#li03').prev().text())
+            console.log($('#li03').closest('ul'))
+        })
+    </script>
+</head>
+<body>
+    <ul id="u01">
+        <li id="li01">1</li>
+        <li>홍길동</li>
+        <li>100</li>
+        <li id="li03">90</li>
+        <li>80</li>
+    </ul>
+</body>
+</html>
