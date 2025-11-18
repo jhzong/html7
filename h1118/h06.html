@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{border:1px solid black; border-collapse: collapse;}
+        th,td{width:100px; height:40px; text-align: center; }
+        #txt{width:400px; height:50px; border:1px solid black; }
+    </style>
+</head>
+<body>
+    <script>
+        /*
+        function calc(a,b){
+            return (a+b)*10//return:호출된 지점으로 값을 돌려줌
+        }
+        
+        function func(a,b,tstr){
+            //document.write(a+b);
+            //document.querySelector('#txt1').innerHTML='결과'
+            document.querySelector('#'+tstr).innerHTML=calc(a,b)
+        }
+        */
+    
+        function conBtn(){
+            alert('!')
+            var txt=document.querySelector('#txt').innerText
+            console.log(txt)
+            
+            var arr=txt.split(',')
+            console.log(arr)
+            document.querySelector('#tbody').innerHTML=
+                `
+                <td>1</td>
+                <td>홍길동</td>
+                <td>100</td>
+                <td>100</td>
+                `
+        };
+    
+    </script>
+    <div id="txt">1,홍길동,100,100</div>
+    <button type="button" onclick="conBtn()">확인</button>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>국어</th>
+            <th>영어</th>
+        </tr>
+        <tbody id="tbody">
+            <tr>
+                <!-- <td>1</td>
+                <td>홍길동</td>
+                <td>100</td>
+                <td>100</td> -->
+            </tr>
+        </tbody>
+    </table>
+    <!-- 
+        <div id="txt1"></div>
+        <button type="button" onclick="func(10,2,'txt1')">ok</button>
+        <div id="txt2"></div>
+        <button type="button" onclick="func(8,7,'txt2')">ok2</button>
+        <div id="txt3"></div>
+        <button type="button" onclick="func(9,1,'txt3')">ok3</button>
+     -->
+</body>
+</html>

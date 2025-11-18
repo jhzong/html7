@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{border: 1px solid black; border-collapse: collapse;}
+        #txt{width: 300px;height: 50px;border: 1px solid black;}
+        th,td{width: 100px;height: 50px;text-align: center;}
+    </style>
+</head>
+<body>
+    <label for="">이름</label>
+    <input type="text" id="name" onkeyup="keyBtn(event)">
+    <button type="button" onclick="saveBtn()">저장</button>
+
+    <div id="txt"></div>
+    <table id="list">
+        <tr><th>이름</th></tr>
+        <tbody id="tbody">
+            <tr><td>홍길동</td></tr>
+            <tr><td>유관순</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        var arr=['홍길동','유관순'];
+        document.querySelector('#txt').innerHTML=arr;
+        
+        function saveBtn(){
+            var name=document.querySelector('#name').value;
+            arr.push(name)
+            console.log(arr)
+
+            document.querySelector('#txt').innerHTML=arr
+            document.querySelector('#name').value=''
+            document.querySelector('#name').focus()
+
+            
+            var tbody=document.querySelector('#tbody')
+            console.log(tbody.innerHTML+`<tr><td>${name}</td></tr>`)
+            tbody.innerHTML+=`<tr><td>${name}</td></tr>`
+
+
+            alert('저장 완료')
+
+        };
+    </script>
+</body>
+</html>

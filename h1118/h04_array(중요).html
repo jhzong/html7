@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{border: 1px solid black; border-collapse: collapse;}
+        th,td{width: 100px; height: 40px; text-align: center;}
+        #txt{width: 400px; height: 50px; border: 1px solid black;}
+    </style>
+</head>
+<body>
+    <label for="">name</label>
+    <input type="text" id="name" onkeyup="keyBtn(event)">
+    <button type="button" onclick="saveBtn()">save</button>
+    <div id="txt"></div>
+    <table>
+        <tr><th>name</th></tr>
+        <tbody id="tbody">
+            <tr><td>Hong</td></tr>
+            <tr><td>Yuu</td></tr>
+        </tbody>
+       
+    </table>
+    
+    <script>
+        var arr=['Hong','Yuu']
+        document.querySelector('#txt').innerHTML=arr;
+
+        function keyBtn(event){
+            console.log('입력된 키값:',event.keyCode)
+            if(event.keyCode==13){
+                saveBtn();
+            }
+        }//keyBtn():saveBtn()과 키값(keyCode==13) 연결
+        
+        function saveBtn(){
+            
+            var name = document.querySelector('#name').value;
+            arr.push(name);//arr로 input값 추가
+            console.log(arr);
+            document.querySelector('#txt').innerHTML=arr;//#txt에 arr값 덧씌우기
+            document.querySelector('#name').value='';//저장후 input창 공백으로 전환
+            document.querySelector('#name').focus();//저장후 input창으로 focus
+            
+            var tbody=document.querySelector('#tbody')
+            console.log(tbody.innerHTML+`<tr><td>${name}</td></tr>`);
+            tbody.innerHTML+=`<tr><td>${name}</td></tr>`//
+
+            alert('saving name...')
+        }//saveBtn():input에 이름을 기입해 array에 추가
+
+
+
+
+    </script>
+</body>
+</html>
