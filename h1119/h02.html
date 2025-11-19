@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        //jquery구문
+        $(function(){
+            /*
+            //jquery 이벤트 처리(동적)
+            //on이벤트는 동적처리가능, 여러이벤트 사용가능
+            $(document).on('click','#btn',function(){
+                alert('check')
+            })
+            */
+            
+            /*
+            */
+            //jquery 이벤트 처리(정적만)
+            //길이가 짧은 대신 1개만 실행
+            $('#btn').click(function(){
+                alert('check2')
+            })
+            $('#btn').focus(function(){
+                alert('check2')
+            })
+            
+        })
+        
+        /*
+        //JS 이벤트처리
+        document.querySelector('#btn').addEventListener('click',function(){
+
+        })
+        */
+    </script>
+</head>
+<body>
+    <div>내용</div>
+    <div>내용2</div>
+    <input type="text">
+    <button type="button" id="btn">확인</button>
+    <button type="button">확인2</button>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>학생성적프로그램</title>
+    <style>
+        table,th,td{border:1px solid black; border-collapse: collapse;}
+        th,td{width:100px; height:40px; text-align: center; }
+        #txt{width:400px; height:50px; border:1px solid black; }
+    </style>
+</head>
+<body>
+    <script>
+        
+    </script>
+
+    <form action="#" method="get">
+        <label for="">번호</label>
+        <input type="text" id="sno" name="sno"><br>
+        <label for="">이름</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="">국어</label>
+        <input type="text" id="kor" name="kor"><br>
+        <label for="">영어</label>
+        <input type="text" id="eng" name="eng"><br>
+        <label for="">수학</label>
+        <input type="text" id="math" name="math" onkeyup="enterBtn(event)"><br>
+        <button type="button" id="sbtn" onclick="saveBtn()">성적저장</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th>합계</th>
+            <th>평균</th>
+            <th>비고</th>
+        </tr>
+        <tbody id="tbody">
+            <tr id="1">
+                <td>1</td>
+                <td>홍길동</td>
+                <td>100</td>
+                <td>90</td>
+                <td>80</td>
+                <td>270</td>
+                <td>90.0</td>
+                <td>
+                    <button type="button" id="update" onclick="updateBtn(this)">수정</button>
+                    <button type="button" id="del" onclick="deleteBtn(this)">삭제</button>
+                </td>
+            </tr>
+            <tr id="2">
+                <td>2</td>
+                <td>유관순</td>
+                <td>70</td>
+                <td>60</td>
+                <td>50</td>
+                <td>180</td>
+                <td>60.0</td>
+                <td>
+                    <button type="button" id="update" onclick="updateBtn(this)">수정</button>
+                    <button type="button" id="del" onclick="deleteBtn(this)">삭제</button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+     <script>
+        
+        function saveBtn(){
+            alert('저장합니다!')
+            
+            var btnname=document.querySelector('#sbtn').innerText
+            if(btnname=='성적수정'){
+                //성적수정
+                var sno=document.querySelector('#sno').value
+                
+                console.log(sno);
+                var name=document.querySelector('#name').value
+                var kor=Number(document.querySelector('#kor').value)
+                var eng=Number(document.querySelector('#eng').value)
+                var math=Number(document.querySelector('#math').value)
+                var total=kor+eng+math
+                var avg=total/3
+                
+                document.getElementById(sno).innerHTML=
+                `
+                <td>${sno}</td>
+                <td>${name}</td>
+                <td>${kor}</td>
+                <td>${eng}</td>
+                <td>${math}</td>
+                <td>${total}</td>
+                <td>${avg}</td>
+                <td>
+                    <button type="button" onclick="updateBtn(this)">수정</button>
+                    <button type="button" onclick="deleteBtn(this)">삭제</button>
+                </td>
+                `
+
+            }else{
+                //저장
+                var sno=document.querySelector('#sno').value
+                if(sno.length<=0){
+                    alert('데이터가 없습니다.')
+                    document.querySelector('#sno').focus
+                    return
+                }
+                var name=document.querySelector('#name').value
+                var kor=Number(document.querySelector('#kor').value)
+                var eng=Number(document.querySelector('#eng').value)
+                var math=Number(document.querySelector('#math').value)
+                var total=kor+eng+math
+                var avg=total/3
+    
+                //위치
+                var tbody=document.querySelector('#tbody')
+                var dhtml=tbody.innerHTML
+                tbody.innerHTML+=
+                `
+                <tr id='${sno}'>
+                    <td>${sno}</td>
+                    <td>${name}</td>
+                    <td>${kor}</td>
+                    <td>${eng}</td>
+                    <td>${math}</td>
+                    <td>${total}</td>
+                    <td>${avg}</td>
+                    <td>
+                        <button type="button" onclick="updateBtn(this)">수정</button>
+                        <button type="button" onclick="deleteBtn(this)">삭제</button>
+                    </td>
+                </tr>
+                `
+                txt_clear()
+            }//onclick사용-saveBtn()
+            }
+            
+        
+        //enter키 함수
+        function enterBtn(event){
+            console.log(event.keyCode)
+            if(event.keyCode==13){saveBtn()}
+        }
+        
+        //입력란 초기화
+        function txt_clear(){
+            document.querySelector('#sno').value=''
+            document.querySelector('#name').value=''
+            document.querySelector('#kor').value=''
+            document.querySelector('#eng').value=''
+            document.querySelector('#math').value=''
+        }
+
+        //삭제 함수-this
+        function deleteBtn(btn){
+            //console.log(btn)
+            //console.log(btn.parentElement)
+            //console.log(btn.parentElement.parentElement.remove())
+            //console.log(tr_e.querySelectorAll('td'))
+            //console.log(tr_e.querySelectorAll('td')[1].innerText)
+            //tr_e.querySelectorAll('td')
+            var tr_e=btn.parentElement.parentElement
+            var del_name=tr_e.querySelectorAll('td')[1].innerText
+            if(confirm(del_name+'학생의 성적을 삭제하시겠습니까?')){
+                tr_e.remove()
+            }
+        }//deleteBtn()
+
+        //수정 함수
+        function updateBtn(btn){
+            alert('수정')
+            var tr_e=btn.parentElement.parentElement
+            var tds=tr_e.querySelectorAll('td')
+            
+            document.querySelector('#sno').value=tds[0].innerText
+            document.querySelector('#name').value=tds[1].innerText
+            document.querySelector('#kor').value=tds[2].innerText
+            document.querySelector('#eng').value=tds[3].innerText
+            document.querySelector('#math').value=tds[4].innerText
+            document.querySelector('#sbtn').innerText='성적수정'
+
+        }//updateBtn()
+        /*
+        document.querySelector('#sbtn').addEventListener('click',function(){
+            alert('using event!')
+        })//event사용
+        */
+    </script>
+</body>
+</html>
