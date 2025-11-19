@@ -6,8 +6,10 @@
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <title>Document</title>
     <script>
+        //배열관련 반복메소드
         $(function(){
             let arr=[1,2,3,4,5];
+            //.map
             //반복처리해서 값을 리턴해주는 함수
             let mapArr=$.map(arr,(v)=>{
                 return v*2;
@@ -15,6 +17,12 @@
 
             console.log(arr)
             console.log(mapArr)
+            console.log("---------------------------")
+            
+            //.each
+            $.each(arr,function(v){
+                console.log(v)
+            })
         })//jquery
     </script>
 </head>
