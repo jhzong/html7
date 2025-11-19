@@ -4,19 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
     <script>
         //JS객체-파이썬과 통신
+        //key와 value 구성. {}로 정의
         var stu={
             'no':1,'name':'홍길동','kor':100,'eng':100
         }
-        var stu2={'no':1,'name':'홍길동','kor':100,'eng':100}
         console.log(stu)
         console.log(stu.no)
         //web에서 다른 web으로 전달시 object객체로 전달하면 해석이 안됨
-        console.log(JSON.stringify(stu))
-        console.log(JSON)
+        console.log(JSON.stringify(stu))//JSON 문자열로 출력
+       
+        //JSON타입 문자열
+        var stu2="{'no':1,'name':'홍길동','kor':100,'eng':100}"
+        
+        console.log(stu2.no)
+        //웹 데이터를 받을때 문자열 형태
+        obj=JSON.parse(stu2)//JS 객체로 변경
+        console.log(obj)
+        console.log(obj.no)//객체의 no변수를 찾음
     </script>
 </body>
 </html>
