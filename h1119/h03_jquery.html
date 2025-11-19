@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<script>
+    //기존소스에 추가-append():뒤,prepend():앞
+    //html():기존소스 삭제후 추가 
+    
+    
+    $(function(){
+        /*
+        var str1='apple'
+        var str2='pear'
+        var str3='peach'
+        var str4='banana'
+        
+        var str_all='<li>'+str1+'</li><li>'+str2+'</li><li>'+str3+'</li><li>'+str4+'</li>'
+        var str_all2=
+        `<li></li>
+        
+        `
+        */
+        
+        $('#btn').click(()=>{
+            f_append()
+            
+            //var f=$('#fruit').val();
+            //$('#u01').append(`<li>${$('#fruit').val()}</li>`)
+            //$('#u01').prepend(`<li>${$('#fruit').val()}</li>`)
+            //$('#u01').html(`<li>${f}</li>`)
+        })
+
+        $('#fruit').keyup((event)=>{
+            if(event.keyCode==13){f_append()}
+            
+        })
+        var f_append=()=>{
+            var f=$('#fruit').val();
+            $('#u01').append(`<li>${$('#fruit').val()}</li>`)
+        }
+
+        
+    })
+    
+    /*
+    ※함수정의
+    function btn(){}
+    var btn=()=>{}//JS6 화살표함수
+    */
+</script>
+<body>
+    <input type="text" name="fruit" id="fruit"><br>
+    <button type="button" id="btn">save</button>
+    <br>
+    <ul id="u01">
+        <li>banana</li>
+        <li>strewberry</li>
+    </ul>
+</body>
+</html>

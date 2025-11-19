@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //JS객체-파이썬과 통신
+        var stu={
+            'no':1,'name':'홍길동','kor':100,'eng':100
+        }
+        var stu2={'no':1,'name':'홍길동','kor':100,'eng':100}
+        console.log(stu)
+        console.log(stu.no)
+        //web에서 다른 web으로 전달시 object객체로 전달하면 해석이 안됨
+        console.log(JSON.stringify(stu))
+        console.log(JSON)
+    </script>
+</body>
+</html>
