@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        //JS는 서버와 통신이 안됨
+        //Ajax를 이용하면 가능
+        $(function(){
+            //json데이터 가져오기
+            $("#jBtn").click(function(){
+                //alert('데이터전송!')
+                $.ajax({  //가져올 url주소
+                    url:"member1.json",
+                    type:"get", //전송방식-get/post
+                    data:{}, //전송할 데이터
+                    dataType:"json",  //전송받는 데이터타입-html,text,json,xml
+                    success:function(data){//성공시 실행
+                        alert('성공')
+                        console.log(data)
+                        $("#d01").text(
+                            `${data[0].id}, ${data[0].first_name},
+                            ${data[0].last_name},${data[0].email},
+                            ${data[0].gender}`)
+                    },
+                    error:function(){//실패시 실행
+                        alert('실패')
+                    }
+                })//ajax
+            })//jBtn
+        })//jquery
+    </script>
+</head>
+<body>
+    <div id="d01"></div>
+    <button type="button" id="jBtn">확인</button>
+</body>
+</html>
