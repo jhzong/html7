@@ -206,37 +206,70 @@ $(function(){
 					</div>
 					<!-- //이전다음글 -->
 
-<!------------------ 실습파트 시작 ------------------>
+<!--------------------------------- 실습파트 시작 --------------------------------->
 					<script>
 						let cno=1
 						$(function(){
+							//keyCode함수:enter키와 replyBtn 연결
+							$('.replyTxt').keyup(function(e){
+								console.log(e.keyCode)
+								if(e.keyCode==13){
+									$(this).closest('ul').find('.replyBtn').click()
+								}
+							})//replyTxt
+
+							//클릭으로 등록하는 함수
 							$('.replyBtn').click(function(){
 								//alert('!')
 								//$(this).parent().parent().children('li')//.부모.부모.자식'li'
 								//$(this).closest('ul').find('.replynum').val()//.가까운'ul'.찾기'.replynum'
 
-								console.log(todayTime())
+								//console.log(todayTime())
 								
 								let ul=$(this).closest('ul')
+								//댓글내용 확인
 								if (ul.find('.replyType').val().length<=0){
 									alert('내용이 없습니다.')
 									ul.find('.replyType').focus()
 									return
 								}//replyType이 공란이면 알람
 								
+								//댓글정보
 								cno
 								let id='aaa'
-								let cpw=$(this).closest("ul").find(".replynum").val();
-								let ccontent=$(this).closest("ul").find(".replyType").val();
+								let cpw=ul.find(".replynum").val();
+								let ccontent=ul.find(".replyType").val();
 								let cdate=todayTime()
+								
+								//댓글출력
+								let dataHtml=``
+								dataHtml+=
+								`
+								<ul id='${cno}'>
+									<li class="name">${id} <span>[${cdate}]</span></li>
+									<li class="txt">${ccontent}</li>
+									<li class="btn">
+										<a class="rebtn updateBtn">수정</a>
+										<a class="rebtn deleteBtn">삭제</a>
+									</li>
+								</ul>
+								`
+								cno++//1증가
+								//댓글리스트 앞에 추가
+								$('.replyBox').prepend(dataHtml)
+								ul.find(".replynum").val('');
+								ul.find(".replyType").val('');
+								alert('댓글을 저장합니다.')
 							})//replyBtn
 							
+
+
 							//날짜변수
 							const todayTime=function(){
-								let now=new Date()//날짜객체선언
+								let now=new Date() //날짜객체선언
 								let year= now.getFullYear()
-								let month = now.getMonth()+1//월+1
-								let day= now.getDate()//day:요일 date:날짜
+								let month = now.getMonth()+1 //월+1
+								let day= now.getDate() //day:요일 date:날짜
 								let hour= now.getHours()
 								let minute= now.getMinutes()
 								let second= now.getSeconds()
@@ -248,11 +281,11 @@ $(function(){
 					</script>
 					<!-- 댓글-->
 					<div class="replyWrite">
-						<ul>
+						<ul id="1">
 							<li class="in">
 								<p class="txt">총 <span class="orange">3</span> 개의 댓글이 달려있습니다.</p>
 								<p class="password">비밀번호&nbsp;&nbsp;<input type="password" class="replynum" /></p>
-								<textarea class="replyType"></textarea>
+								<textarea class="replyType replyTxt"></textarea>
 							</li>
 							<li class="btn"><a class="replyBtn">등록</a></li>
 						</ul>
@@ -269,6 +302,7 @@ $(function(){
 								<a class="rebtn deleteBtn">삭제</a>
 							</li>
 						</ul>
+<!---------------------------- 실습파트 끝남 --------------------------------->
 						
 						<!-- 
 						<ul>※수정
