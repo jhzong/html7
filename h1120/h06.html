@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>학생성적프로그램</title>
+    <style>
+        table,th,td{border:1px solid black; border-collapse: collapse;}
+        th,td{width:100px; height:40px; text-align: center; }
+        #txt{width:400px; height:50px; border:1px solid black; }
+    </style>
+    <script>
+        $(function(){
+            $('#rcvBtn').click(function(){
+                
+                $.ajax({
+                    url:'',
+                    type:'get',
+                    data:{},
+                    dataType:'json',
+                    success:function(){
+                        alert('O')
+                    },
+                    error:function(){
+                        alert('X')
+                    }
+                })//ajax
+            })//rcvBtn
+        })//jquery
+    </script>
+</head>
+<body>
+    <button type="button" id="rcvBtn">데이터 가져오기</button>
+    <form action="#" method="get">
+        <label for="">번호</label>
+        <input type="text" id="sno" name="sno"><br>
+        <label for="">이름</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="">국어</label>
+        <input type="text" id="kor" name="kor"><br>
+        <label for="">영어</label>
+        <input type="text" id="eng" name="eng"><br>
+        <label for="">수학</label>
+        <input type="text" id="math" name="math" onkeyup=""><br>
+        <button type="button" id="sbtn" onclick="">성적저장</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>아이디</th>
+            <th>날짜</th>
+            <th>내용</th>
+            <th>비밀번호</th>
+        </tr>
+        <tbody id="tbody">
+        
+        </tbody>
+    </table>
+
+    
+</body>
+</html>
