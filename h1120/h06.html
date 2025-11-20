@@ -13,18 +13,32 @@
     <script>
         $(function(){
             $('#rcvBtn').click(function(){
-                
                 $.ajax({
-                    url:'',
+                    url:'comment.json',
                     type:'get',
                     data:{},
                     dataType:'json',
-                    success:function(){
+                    success:function(data){
                         alert('O')
-                    },
+                        console.log(data)
+                        let cHtml=``
+                        for(let i=0;i<data.length;i++){
+                        cHtml+=
+                        `
+                        <tr id='${data[i].cno}'>
+                            <td>${data[i].cno}</td>
+                            <td>${data[i].id}</td>
+                            <td>${data[i].cdate}</td>
+                            <td>${data[i].ccontent}</td>
+                            <td>${data[i].cpw}</td>
+                        </tr>
+                        `
+                        }
+                        $('#tbody').html(cHtml)//class:'.',id:'#'선택자 주의
+                    },//success
                     error:function(){
                         alert('X')
-                    }
+                    }//fail
                 })//ajax
             })//rcvBtn
         })//jquery
@@ -33,17 +47,9 @@
 <body>
     <button type="button" id="rcvBtn">데이터 가져오기</button>
     <form action="#" method="get">
-        <label for="">번호</label>
-        <input type="text" id="sno" name="sno"><br>
-        <label for="">이름</label>
-        <input type="text" id="name" name="name"><br>
-        <label for="">국어</label>
-        <input type="text" id="kor" name="kor"><br>
-        <label for="">영어</label>
-        <input type="text" id="eng" name="eng"><br>
-        <label for="">수학</label>
-        <input type="text" id="math" name="math" onkeyup=""><br>
-        <button type="button" id="sbtn" onclick="">성적저장</button>
+        <label for="">댓글</label><br>
+        <input type="text" id="comment" name="comment" onkeyup="enterBtn()"><br>
+        <button type="button" id="sbtn" onclick="saveBtn()">등록</button>
     </form>
 
     <table>

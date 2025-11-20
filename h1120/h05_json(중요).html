@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>학생성적프로그램</title>
+    <style>
+        table,th,td{border:1px solid black; border-collapse: collapse;}
+        th,td{width:100px; height:40px; text-align: center; }
+        #txt{width:400px; height:50px; border:1px solid black; }
+    </style>
+    <script>
+        /*같이하기
+        같이하기*/
+        $(function(){
+            $('#rcvBtn').click(function(){
+                //alert('!')
+                $.ajax({
+                    url:'stu_data1.json',
+                    type:'get',
+                    data:{},
+                    dataType:'json',
+                    success:function(data){
+                        alert('success')
+                        console.log(data)
+                        let dataHtml=``
+                        for(let i=0;i<data.length;i++){//문법 주의
+                        dataHtml+=
+                            `
+                            <tr id="${data[i].sno}">
+                                <td>${data[i].sno}</td>
+                                <td>${data[i].name}</td>
+                                <td>${data[i].kor}</td>
+                                <td>${data[i].eng}</td>
+                                <td>${data[i].math}</td>
+                                <td>${data[i].total}</td>
+                                <td>${data[i].avg}</td>
+                                <td>
+                                    <button type="button" id="uBtn">수정</button>
+                                    <button type="button" id="dBtn">삭제</button>
+                                </td>
+                            </tr>
+                            `
+                        }
+                        console.log(dataHtml)
+                        $("#tbody").html(dataHtml)
+                    },
+                    error:function(){
+                        alert('failed')
+                    }
+                })//ajax
+            })//rcvBtn(데이터가져오기)
+        })//jquery
+        
+        
+        /*내꺼
+        $(function(){
+            $('#rcvBtn').click(function(){
+                $.ajax({
+                    url:'stu_data1.json',
+                    type:'get',
+                    data:{},
+                    dataType:'json',
+                    success:function(data){
+                        alert('receiving data')
+                        console.log(data)
+                        let dHtml=``
+                        for(let i;i<data.length;i++){
+                            dHtml+=
+                            `
+                            <tr id="${data[i].sno}">
+                                <td>${data[i].sno}</td>
+                                <td>${data[i].name}</td>
+                                <td>${data[i].kor}</td>
+                                <td>${data[i].eng}</td>
+                                <td>${data[i].math}</td>
+                                <td>${data[i].total}</td>
+                                <td>${data[i].avg}</td>
+                                <td>
+                                    <button type="button" id="uBtn">수정</button>
+                                    <button type="button" id="dBtn">삭제</button>
+                                </td>
+                            </tr>
+                            `
+                        }
+                        $('#tbody').html(dHtml)
+                    },//success
+                    error:function(){
+                        alert('failure')
+                    }//error
+                })//ajax
+            })//rcvBtn
+        })//jquery
+        내꺼*/
+
+    
+    /*
+    for(let i;i<data.length;i++){
+        dHtml+=
+        `
+        <tr id="${data[i].sno}">
+            <td>${data[i].sno}</td>
+            <td>${data[i].name}</td>
+            <td>${data[i].kor}</td>
+            <td>${data[i].eng}</td>
+            <td>${data[i].math}</td>
+            <td>${data[i].total}</td>
+            <td>${data[i].avg}</td>
+            <td>
+                <button type="button" id="uBtn">수정</button>
+                <button type="button" id="dBtn">삭제</button>
+            </td>
+        </tr>
+        `
+    }
+    */
+    </script>
+</head>
+<body>
+    <button type="button" id="rcvBtn">데이터 가져오기</button>
+    <form action="#" method="get">
+        <label for="">번호</label>
+        <input type="text" id="sno" name="sno"><br>
+        <label for="">이름</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="">국어</label>
+        <input type="text" id="kor" name="kor"><br>
+        <label for="">영어</label>
+        <input type="text" id="eng" name="eng"><br>
+        <label for="">수학</label>
+        <input type="text" id="math" name="math" onkeyup=""><br>
+        <button type="button" id="sbtn" onclick="">성적저장</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th>합계</th>
+            <th>평균</th>
+            <th>비고</th>
+        </tr>
+        <tbody id="tbody">
+        
+        </tbody>
+    </table>
+
+    
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>학생성적프로그램</title>
+    <style>
+        table,th,td{border:1px solid black; border-collapse: collapse;}
+        th,td{width:100px; height:40px; text-align: center; }
+        #txt{width:400px; height:50px; border:1px solid black; }
+    </style>
+    <script>
+        $(function(){
+            
+            
+            //삭제버튼함수
+            $(document).on('click','.delBtn',function(){
+                alert('!')
+                
+                //console.log($(this).parent().parent().attr('id'))//$(this):현재 클릭된 위치
+                //console.log($(this).closest('tr').attr('id'))//$(this):현재 클릭된 위치
+                let no=$(this).closest('tr').attr('id')
+                $('#'+no).remove()
+            })//
+        })//jquery
+    </script>
+</head>
+<body>
+    <form action="#" method="get">
+        <label for="">번호</label>
+        <input type="text" id="sno" name="sno"><br>
+        <label for="">이름</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="">국어</label>
+        <input type="text" id="kor" name="kor"><br>
+        <label for="">영어</label>
+        <input type="text" id="eng" name="eng"><br>
+        <label for="">수학</label>
+        <input type="text" id="math" name="math" onkeyup="enterBtn(event)"><br>
+        <button type="button" id="sbtn" onclick="saveBtn()">성적저장</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th>합계</th>
+            <th>평균</th>
+            <th>비고</th>
+        </tr>
+        <tbody id="tbody">
+            <tr id="1">
+                <td>1</td>
+                <td>홍길동</td>
+                <td>100</td>
+                <td>90</td>
+                <td>80</td>
+                <td>270</td>
+                <td>90.0</td>
+                <td>
+                    <button type="button" class="upBtn">수정</button>
+                    <button type="button" class="delBtn">삭제</button>
+                </td>
+            </tr>
+            <tr id="2">
+                <td>2</td>
+                <td>유관순</td>
+                <td>70</td>
+                <td>60</td>
+                <td>50</td>
+                <td>180</td>
+                <td>60.0</td>
+                <td>
+                    <button type="button" class="upBtn">수정</button>
+                    <button type="button" class="delBtn">삭제</button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+</body>
+</html>
