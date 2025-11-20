@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <style>
+        img{width: 300px; display: none;}
+    </style>
+    <script>
+        $(function(){
+            //확대-축소 애니메이션
+            $('#wBtn').click(function(){
+                $('img').stop().animate({'width':'+=100px'},1000,function(){
+
+                })//img-animation-wide
+            })//wBtn
+            $('#sBtn').click(function(){
+                $('img').stop().animate({'width':'-=100px'},1000,function(){
+
+                })//img-animation-shrink
+            })//wBtn
+            
+            /*fade in-out 애니메이션
+            $('#oBtn').click(function(){
+                $('#hana2').fadeIn(500,function(){
+
+                })//fadeIn
+            })//oBtn
+            $('#cBtn').click(function(){
+                $('#hana2').fadeOut(500,function(){
+
+                })//fadeOut
+            })//cBtn
+            */
+        })//jquery
+    </script>
+</head>
+<body>
+    <!-- <button type="button" id="oBtn">open</button> -->
+    <!-- <button type="button" id="cBtn">close</button> -->
+    <button type="button" id="wBtn">wide</button>
+    <button type="button" id="sBtn">shrink</button>
+    <br>
+    <img src="image/hana02.jpg" id="hana2">
+</body>
+</html>

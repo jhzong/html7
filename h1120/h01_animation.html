@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <style>
+        #txt{border:1px solid black; width:300px; height:200px;
+        display: none;
+        }
+        
+    </style>
+    <script>
+        $(function(){
+            $('#aBtn').click(function(){
+                console.log($('#aBtn').text())
+                console.log($(this).text())
+                let aBtn=$(this)//.stop():애니메이션 실행중 다른 애니메이션 샐행 가능해짐
+                $('#txt').stop().fadeToggle(500,function(){
+                    if(aBtn.text()=='open'){
+                        aBtn.text('close')
+                    }else{
+                        aBtn.text('open')
+                    }//open-close if문
+                })//#txt토글
+            })//aBtn
+            
+            /*
+            $("#aBtn").click(function(){
+                //alert('!')
+                $("#txt").stop().fadeIn(1000,function(){})//Out
+            })//aBtn
+            $("#aBtn_no").click(function(){
+                $("#txt").stop().slideUp(1000,function(){})//Down,Toggle
+            })//aBtn_no
+            */
+        })//jquery
+    </script>
+</head>
+<body>
+    <button type="button" id="aBtn">open</button>
+    <!-- <button type="button" id="aBtn_no">애니메이션 close</button> -->
+    <br>
+    <div id="txt">전북경찰청은 지난 15일 익산 지역 군부대에 전화를 걸어 청와대에 폭탄 테러를 하겠다고 협박한 혐의로 30대 남성을 구속했다고 밝혔습니다.</div>
+    
+</body>
+</html>

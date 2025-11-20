@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll animation</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{height: 3000px; width: 3000px;
+        background: url(image/FALL_IN_RESOM_pc.jpg);
+        }
+        #txt{border: 1px solid black; width: 200px; height: 200px;
+        position: fixed; background: yellow;
+        }
+    </style>
+    <script>
+        $(function(){
+            $(window).on('scroll',function(){
+                var sc_top=$(this).scrollTop()
+                var sc_left=$(this).scrollLeft()
+                $("#txt").html('스크롤높이 : '+sc_top+'<br>스크롤넓이'+sc_left)
+            })
+        })//jquery
+    </script>
+</head>
+<body>
+    <div id="txt"></div>
+</body>
+</html>

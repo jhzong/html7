@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{margin: 0; padding: 0;}
+        div{border: 1px solid black;}
+        #main{width: 800px; height: 100px; margin: 0 auto;}
+        #sub{width: 100px; height: 100px; background: green; box-sizing: border-box;}
+    </style>
+    <script>
+        $(function(){
+            let m_length=0;//전역변수
+            $('#rBtn').click(function(){
+                m_length+=100;
+                if(m_length>700){m_length=700};
+                $('#sub').animate({'margin-left':m_length+'px'},500,function(){})
+                //$('#sub').css({'margin-left':'+=100px'})
+            })//rBtn
+            $('#lBtn').click(function(){
+                m_length-=100;
+                if(m_length<0){m_length=0};
+                $('#sub').animate({'margin-left':m_length+'px'},500,function(){})
+                //$('#sub').css({'margin-left':'-=100px'})
+            })//lBtn
+        })//jquery
+    </script>
+</head>
+<body>
+    <button type="button" id="lBtn">move-left</button>
+    <button type="button" id="rBtn">move-right</button>
+    <br>
+    <div id="main">
+        <div id="sub"></div>
+    </div>
+</body>
+</html>
