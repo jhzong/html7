@@ -15,7 +15,6 @@
         같이하기*/
         $(function(){
             $('#rcvBtn').click(function(){
-                //alert('!')
                 $.ajax({
                     url:'stu_data1.json',
                     type:'get',
@@ -66,7 +65,7 @@
                         alert('receiving data')
                         console.log(data)
                         let dHtml=``
-                        for(let i;i<data.length;i++){
+                        for(let i=0;i<data.length;i++){
                             dHtml+=
                             `
                             <tr id="${data[i].sno}">

@@ -13,7 +13,6 @@
     <script>
         $(function(){
             
-            
             //삭제버튼함수
             $(document).on('click','.delBtn',function(){
                 alert('!')
@@ -22,7 +21,8 @@
                 //console.log($(this).closest('tr').attr('id'))//$(this):현재 클릭된 위치
                 let no=$(this).closest('tr').attr('id')
                 $('#'+no).remove()
-            })//
+            })//click-delBtn
+            
         })//jquery
     </script>
 </head>
