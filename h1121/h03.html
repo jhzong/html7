@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(function(){
+            $('#age').keyup(function(e){
+                if(e.keyCode==13){
+                    $('#ageBtn').click()
+                }
+            })
+            
+            $('#ageBtn').click(function(){
+                /*
+                if($('#age').val().trim().length<4){
+                    alert('4자리 이상')
+                    return
+                }
+                if(isNaN($('#age').val())){
+                    alert('숫자입력')
+                    return
+                }
+                */
+                //영문(첫글자)+숫자(4자리) a2025
+                let age= $('#age').val()
+                //1.5자리확인
+                if(age.length<5){
+                    alert('!')
+                    return
+                }
+                //2.첫글자가 알파벳인가?
+                if(!isNaN(age.substr(0,1))){
+                    alert('!!')
+                    return
+                }
+                //3.2~5는 숫자인가?
+                if(isNaN(age.substr(1))){
+                    alert('!!!')
+                    return
+                }
+
+                age.substr(0,1);//a
+                age.substr(1);//2025
+                age.substr(1,2);//20 1번째부터 2개
+
+                console.log($('#age').val())
+            })//ageBtn()
+        })//jquery
+    </script>
+</head>
+<body>
+    <label for="">년도</label>
+    <input type="text" name="age" id="age"><br>
+    <input type="button" id="ageBtn" value="년도"><br>
+</body>
+</html>

@@ -230,7 +230,7 @@ $(function(){
 
 							//1.하단댓글추가(click)
 							$('.replyBtn').click(function(){
-								let ul= $(this).closest('ul')
+								const ul= $(this).closest('ul')
 								
 								//회원정보 가져오기
 								cno
@@ -254,8 +254,8 @@ $(function(){
 									<li class="name">${id} <span>[${cdate}]</span></li>
 									<li class="txt">${ccontent}</li>
 									<li class="btn">
-										<a class="rebtn">수정</a>
-										<a class="rebtn">삭제</a>
+										<a class="rebtn uptBtn">수정</a>
+										<a class="rebtn delBtn">삭제</a>
 									</li>
 								</ul>
 								`
@@ -274,10 +274,25 @@ $(function(){
 								if(e.keyCode==13){
 									$(this).closest('ul').find('.replyBtn').click()
 								}
-
 							})//keyCode함수
 						
-						
+							//2.댓글삭제(click)
+							$(document).on('click','.delBtn',function(){
+								const ul= $(this).closest('ul')
+								console.log(ul.attr('id'))
+								if(confirm(`${ul.attr('id')}번 댓글을 삭제하시겠습니까?`)){
+									ul.remove()
+								}
+							})//delBtn
+
+							//3.댓글수정(click)
+							$(document).on('click','.uptBtn',function(){
+								alert('!')
+								const ul= $(this).closest('ul')
+								console.log(ul.attr('id'))
+
+							})//uptBtn
+
 						})//jquery
 					</script>
 					<!-- 댓글-->
@@ -299,8 +314,8 @@ $(function(){
 							<li class="name">jjabcde <span>[2014-03-04&nbsp;&nbsp;15:01:59]</span></li>
 							<li class="txt">대박!!! 이거 저한테 완전 필요한 이벤트였어요!!</li>
 							<li class="btn">
-								<a href="#" class="rebtn">수정</a>
-								<a href="#" class="rebtn">삭제</a>
+								<a class="rebtn uptBtn">수정</a>
+								<a class="rebtn delBtn">삭제</a>
 							</li>
 						</ul>
 <!---------------------------- 실습파트 끝남 --------------------------------->

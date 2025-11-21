@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(function(){
+            
+        })//jquery
+        function aBtn(){
+            //정규표현식:문자열에서 특정문자의 조합을 찾기 위한 패턴
+            //패턴시작,끝:/  /
+            //^:시작 $:끝
+            //[해당문자]
+            //[0123456789],\d,[ab],
+            //[0-9]:숫자,[a-zA-Z]:영문
+            //[^asd5685]:[]안의 '^'는 not
+            //{시작,끝},{숫자 만큼 반복}
+            //test()=>맞으면 true 틀리면 false
+            //let reg_age=/^01[0-9]{1}-[0-9]{4}-[0-9]{4}$/; //010-1111-1111
+            //let reg_age2=/^01.{1}-[0-9]{4}-[0-9]{4}$/;
+            //let reg_age3=/^[01]{3}-[0-9]{4}-[0-9]{4}$/;
+            //아이디는 첫문자는 영문(소), 영+숫, 3~10자리
+            //let reg_age=/^[a-z]{1}[0-9a-zA-Z]{2,9}$/
+            let reg_age=/^[a-z]{1}\w{2,9}$/
+            
+            
+            if(reg_age.test($('#age').val())){
+                alert('가능')
+            }else{
+                alert('불가능')
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="">년도</label>
+    <input type="text" name="age" id="age" placeholder="입력창"><br>
+    <input type="button" id="ageBtn" onclick="aBtn()" value="년도"><br>
+</body>
+</html>
