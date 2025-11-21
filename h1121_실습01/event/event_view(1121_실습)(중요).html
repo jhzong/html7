@@ -230,7 +230,6 @@ $(function(){
 
 							//1.하단댓글추가(click)
 							$('.replyBtn').click(function(){
-								alert('댓글을 등록합니다.')
 								let ul= $(this).closest('ul')
 								
 								//회원정보 가져오기
@@ -240,6 +239,14 @@ $(function(){
 								ccontent=ul.find('.replyTxt').val()
 								cdate=todayTime()
 								
+								//만약 댓글창이 공란이면 등록X
+								if(ccontent<=0){
+									alert('내용이 없습니다.')
+									ccontent=ul.find('.replyTxt').focus()
+									return
+								}
+								
+								alert('댓글을 등록합니다.')
 								let dHtml=``//dHtml선언
 								dHtml+=//dHtml에 내용 추가
 								`
@@ -263,7 +270,14 @@ $(function(){
 							})//replyBtn
 
 							//'등록'button과 enter키(keyCode:13) 연결
-							$
+							$('.replyTxt').keyup(function(e){
+								if(e.keyCode==13){
+									$(this).closest('ul').find('.replyBtn').click()
+								}
+
+							})//keyCode함수
+						
+						
 						})//jquery
 					</script>
 					<!-- 댓글-->

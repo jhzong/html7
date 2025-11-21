@@ -209,7 +209,8 @@ $(function(){
 <!--------------------------------- 실습파트 시작 --------------------------------->
 					<script>
 						let cno=1
-						//번역변수선언
+						//전역변수선언
+						let flag=0
 						let id
 						let cdate
 						let ccontent
@@ -219,6 +220,10 @@ $(function(){
 							$('.replyTxt').keyup(function(e){
 								//test_console.log : console.log(e.keyCode)
 								if(e.keyCode==13){
+									if($(this).val().trim().length==0){
+										console.log('enter키만 입력시 저장X')
+										return//?
+									}
 									$(this).closest('ul').find('.replyBtn').click()
 								}
 							})//replyTxt
@@ -238,7 +243,7 @@ $(function(){
 								}//replyType이 공란이면 알람
 								
 								//댓글정보
-								cno
+								
 								id='aaa'
 								cpw=ul.find(".replynum").val();
 								ccontent=ul.find(".replyType").val();
@@ -280,6 +285,10 @@ $(function(){
 
 							//3.클릭해 수정하는 함수
 							$(document).on('click','.updateBtn',function(){
+								if(flag!=0){
+									alert('다른 댓글 수정을 닫아야 수정가능합니다.')
+									return
+								}
 								alert('댓글을 수정합니다')
 								const ul=$(this).closest('ul')
 								//cno에서의 위치
@@ -308,6 +317,7 @@ $(function(){
 								`
 								//수정화면 태그입력
 								$(this).closest('ul').html(dataHtml)
+								flag=1//수정화면 눌림
 							
 							})//updateBtn
 
@@ -326,8 +336,29 @@ $(function(){
 									</li>
 								`
 								ul.html(dataHtml)
+								flag=0//수정화면 닫힘
 
 							})
+
+							//5.수정내용저장
+							$(document).on('click','.uSaveBtn',function(){
+								alert('수정내용을 저장합니다')
+								const ul=$(this).closest('ul')
+								//수정할 댓글 가져오기
+								console.log(ul.find('.replyType').val())
+								cdate=todayTime()//수정시간
+								ccontent=ul.find('.replyType').val()//수정내용
+								let dataHtml=
+								`
+								<li class="name">${id} <span>[${cdate}]</span></li>
+								<li class="txt">${ccontent}</li>
+								<li class="btn">
+									<a class="rebtn updateBtn">수정</a>
+									<a class="rebtn deleteBtn">삭제</a>
+								</li>
+								`//ul에 태그넣기
+								ul.html(dataHtml)
+							})//uSaveBtn
 
 							//댓글갯수_카운트 변수
 							const c_count=function(flag){
