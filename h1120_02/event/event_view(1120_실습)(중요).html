@@ -209,6 +209,11 @@ $(function(){
 <!--------------------------------- 실습파트 시작 --------------------------------->
 					<script>
 						let cno=1
+						//번역변수선언
+						let id
+						let cdate
+						let ccontent
+						let cpw
 						$(function(){
 							//keyCode함수:enter키와 replyBtn 연결
 							$('.replyTxt').keyup(function(e){
@@ -234,10 +239,10 @@ $(function(){
 								
 								//댓글정보
 								cno
-								let id='aaa'
-								let cpw=ul.find(".replynum").val();
-								let ccontent=ul.find(".replyType").val();
-								let cdate=todayTime()
+								id='aaa'
+								cpw=ul.find(".replynum").val();
+								ccontent=ul.find(".replyType").val();
+								cdate=todayTime()
 								
 								//댓글출력
 								let dataHtml=``
@@ -275,18 +280,27 @@ $(function(){
 
 							//3.클릭해 수정하는 함수
 							$(document).on('click','.updateBtn',function(){
+								alert('댓글을 수정합니다')
 								const ul=$(this).closest('ul')
+								//cno에서의 위치
 								console.log(ul.attr('id'))
+								/*test주석
 								console.log(ul.find('.name').text())
-								console.log(ul.find('.name').text().split(' ')[0])//split():()을 기준으로 구분하기
+								//split():()을 기준으로 구분하기
+								console.log(ul.find('.name').text().split(' ')[0])//이름
+								console.log(ul.find('.name').text().split(' ')[1])//날짜
 								console.log(ul.find('span').text())
 								console.log(ul.find('.txt').text())
+								*/
+								//data가져오기 cno,id,cdate,ccontent
+								id=ul.find('.name').text().split(' ')[0]
+								cdate=ul.find('span').text()
+								ccontent=ul.find('.txt').text()
 
-								/*test주석*/
 								let dataHtml=//수정화면
 								`
-								<li class="name">jjabcde <span>[2014-03-04&nbsp;&nbsp;15:01:59]</span></li>
-								<li class="txt"><textarea class="replyType"></textarea></li>
+								<li class="name">${id} <span>${cdate}</span></li>
+								<li class="txt"><textarea class="replyType">${ccontent}</textarea></li>
 								<li class="btn">
 									<a class="rebtn uSaveBtn">저장</a>
 									<a class="rebtn cancelBtn">취소</a>
@@ -296,6 +310,24 @@ $(function(){
 								$(this).closest('ul').html(dataHtml)
 							
 							})//updateBtn
+
+							//4.수정취소
+							$(document).on('click','.cancelBtn',function(){
+								const ul=$(this).closest('ul')
+								console.log(ul.attr('id'))
+								//기존에 저장된 데이터 사용
+								let dataHtml=
+								`
+									<li class="name">${id} <span>[${cdate}]</span></li>
+									<li class="txt">${ccontent}</li>
+									<li class="btn">
+										<a class="rebtn updateBtn">수정</a>
+										<a class="rebtn deleteBtn">삭제</a>
+									</li>
+								`
+								ul.html(dataHtml)
+
+							})
 
 							//댓글갯수_카운트 변수
 							const c_count=function(flag){
