@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <script>
+        $(function(){
+            $('#loginBtn').click(function(){
+                //data전송규칙
+                location.href=`h02.html?id=${$('#id').val()}&pw=${$('#pw').val()}`
+            })//loginBtn
+        })//jquery
+    </script>
+</head>
+<body>
+    <!-- data를 전송할때 <form></form>을 사용해주는게 편리 -->
+        <input type="text" name="id" id="id" placeholder="아이디를 입력하시오.">
+        <input type="text" name="pw" id="pw" placeholder="비번을 입력하시오.">
+        <input type="button" id="loginBtn" value="로그인">
+    
+</body>
+</html>
