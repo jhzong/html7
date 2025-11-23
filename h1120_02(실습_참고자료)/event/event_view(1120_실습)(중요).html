@@ -265,8 +265,8 @@ $(function(){
 								cno++//댓글번호 +1
 								//댓글리스트 앞에 추가
 								$('.replyBox').prepend(dataHtml)
-								ul.find(".replynum").val('');
-								ul.find(".replyType").val('');
+								ul.find(".replynum").val('');//등록후 비번창 비우기
+								ul.find(".replyType").val('');//등록후 댓글창 비우기
 								alert('댓글을 저장합니다.')
 								//댓글갯수_카운트_증가
 								c_count(1)
@@ -283,7 +283,7 @@ $(function(){
 								}//
 							})//deleteBtn
 
-							//3.클릭해 수정하는 함수
+							//3.클릭해 수정하는 함수(click ~ 수정화면 띄우기)
 							$(document).on('click','.updateBtn',function(){
 								//여러댓글 중복수정 불가
 								if(flag!=0){
@@ -303,7 +303,7 @@ $(function(){
 								console.log(ul.find('.txt').text())
 								*/
 								//data가져오기 cno,id,cdate,ccontent
-								id=ul.find('.name').text().split(' ')[0]
+								id=ul.find('.name').text().split(' ')[0]//' '를 기준으로 나눠 첫번째 요소를 가져옴
 								cdate=ul.find('span').text()
 								ccontent=ul.find('.txt').text()
 
@@ -316,7 +316,7 @@ $(function(){
 									<a class="rebtn cancelBtn">취소</a>
 								</li>
 								`
-								//수정화면 태그입력
+								//수정화면 열기
 								$(this).closest('ul').html(dataHtml)
 								flag=1//수정화면 눌림
 							
