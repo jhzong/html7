@@ -314,7 +314,7 @@ $(document).ready(function() {
 						$(document).on('click','.editBtn',function(){
 							if(flag!=0){return}
 							alert('댓글을 수정합니다.')
-							const ul = $(this).closest('ul')
+								const ul = $(this).closest('ul')
 							console.log(ul.attr('id'))
 							cid = ul.find('.name').text().split(' ')[0]
 							cdate = ul.find('span').text()
@@ -328,7 +328,7 @@ $(document).ready(function() {
 								<a class="rebtn cxlBtn">취소</a>
 							</li>
 							`
-							$(this).closest('ul').html(dHtml)
+							$(this).closest('ul').html(dHtml)//현재댓글란을 수정화면으로 전환
 							flag=1
 						})//editBtn
 						

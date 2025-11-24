@@ -1,0 +1,5 @@
+1.h1124_02/event/event_view.html 댓글등록 복습
+2.click링크 등록
+  h1124_02/main/html
+  h1124_02/event/event.html,event_view.html
+  h1124_02/member/login.html,step01.html,step02.html
