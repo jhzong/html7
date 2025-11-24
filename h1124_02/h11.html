@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>학생성적프로그램</title>
+    <style>
+        table,th,td{border:1px solid black; border-collapse: collapse;}
+        table{width: 1200px;}
+        th,td{height:40px; text-align: center; }
+        #txt{width:400px; height:50px; border:1px solid black; }
+    </style>
+    <script>
+        /*
+        <tr id="1">
+            <td>1</td>
+            <td>홍길동</td>
+            <td>100</td>
+            <td>90</td>
+            <td>80</td>
+            <td>270</td>
+            <td>90.0</td>
+            <td>
+                <button type="button" id="update" onclick="updateBtn(this)">수정</button>
+                <button type="button" id="del" onclick="deleteBtn(this)">삭제</button>
+            </td>
+        </tr>
+        */
+        $(function(){
+            $("#takeBtn").click(function(){
+                //alert('확인')
+                $.ajax({//live server모드 확인
+                    url:"https://apis.data.go.kr/B551011/PhotoGalleryService1/galleryList1?serviceKey=29b0b931e96abea5be6407185e36ed3cb76294a1ee46ef38a702ee3acf6d5c79&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&_type=json",
+                    type:"get",
+                    data:{},
+                    dataType:"json",
+                    success:function(data){
+                        alert('성공')
+                        console.log(data.response.body.items.item)//array 10개. data.length
+                        var tour_data=data.response.body.items.item
+                        var dataHtml=``//dataHtml 선언
+                        //기본for문
+                        for(var i=0;i<tour_data.length;i++){
+                            dataHtml+=
+                            `
+                            <tr id="${tour_data[i].galContentId}">
+                                <td>${tour_data[i].galContentId}</td>
+                                <td>${tour_data[i].galTitle}</td>
+                                <td>${tour_data[i].galCreatedtime}</td>
+                                <td>${tour_data[i].galPhotographyLocation}</td>
+                                <td>${tour_data[i].galPhotographer}</td>
+                                <td>${tour_data[i].galSearchKeyword}</td>
+                                <td><image src="${tour_data[i].galWebImageUrl}"></td>
+                            </tr>
+                            `
+                        }
+                        
+                        /*
+                        //단순for문-array일떄만 가능
+                        for(var i of data){
+
+                        }
+                        */
+                        
+                        $('#tbody').html( dataHtml )
+                        
+                    },
+                    error:function(){alert('실패')}
+                })//ajax
+            })//takeBtn
+        })//jquery
+
+
+    </script>
+</head>
+<body>
+    <button type="button" id="takeBtn">데이터 가져오기</button>
+    <form action="#" method="get">
+        <label for="">번호</label>
+        <input type="text" id="sno" name="sno"><br>
+        <label for="">이름</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="">국어</label>
+        <input type="text" id="kor" name="kor"><br>
+        <label for="">영어</label>
+        <input type="text" id="eng" name="eng"><br>
+        <label for="">수학</label>
+        <input type="text" id="math" name="math" onkeyup="enterBtn(event)"><br>
+        <button type="button" id="sbtn" onclick="saveBtn()">성적저장</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>촬영일</th>
+            <th>촬영장소</th>
+            <th>작가</th>
+            <th>키워드</th>
+            <th>이미지</th>
+        </tr>
+        <tbody id="tbody">
+        
+        </tbody>
+    </table>
+
+    
+</body>
+</html>

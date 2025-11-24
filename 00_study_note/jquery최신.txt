@@ -1,16 +1,7 @@
+jquery script <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 ※가상서버 127.0.0.1:5500
 ※선생님서버 192.168.0.97:5500
 https://apis.data.go.kr/B551011/PhotoGalleryService1/galleryList1?serviceKey=29b0b931e96abea5be6407185e36ed3cb76294a1ee46ef38a702ee3acf6d5c79&numOfRows=10&pageNo=https://apis.data.go.kr/B551011/PhotoGalleryService1/galleryList1?serviceKey=29b0b931e96abea5be6407185e36ed3cb76294a1ee46ef38a702ee3acf6d5c79&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&_type=json
 https://apis.data.go.kr/B551011/PhotoGalleryService1/galleryList1?
 
-jquery script <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-serviceKey=29b0b931e96abea5be6407185e36ed3cb76294a1ee46ef38a702ee3acf6d5c79
-&numOfRows=10
-&pageNo=1
-&MobileOS=ETC
-&MobileApp=AppTest
-&arrange=A
-&_type=json
 
-※질문1(352)※-1회 수정 후 재수정 불가?
-※질문2(315)※-flag값에 따라 return(어디로?)

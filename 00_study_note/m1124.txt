@@ -1,5 +1,9 @@
-1.h1124_02/event/event_view.html 댓글등록 복습
-2.click링크 등록
-  h1124_02/main/html
+※복습※
+1.h1124_02/event/event_view.html
+  댓글등록 복습
+2.h1124_02/main/html
   h1124_02/event/event.html,event_view.html
   h1124_02/member/login.html,step01.html,step02.html
+  페이지 링크 등록하기
+3.h1124_02/member/step02
+  636~652 채크박스(동의)
