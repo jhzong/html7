@@ -392,6 +392,10 @@ reg_date date,
 mod_date date
 );
 select * from inventory;
+alter table inventory modify use_yn char(2);
 
 insert into inventory values(
 1,'aaa','A',10000,50,'N',sysdate,sysdate);
+delete inventory;
+
+commit;
