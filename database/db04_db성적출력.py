@@ -3,7 +3,6 @@ import oracledb
 def getConnection():
     return oracledb.connect(user="ora_user",password="1111",dsn="localhost:1521/xe")
 
-
 title=["No.","name","Kor","Eng","Math","T.sum","Avg","Sdate"]
 
 while True:
@@ -24,11 +23,11 @@ while True:
         math=int(input('수학성적을 입력하시오>>'))
         total=kor+eng+math
         avg=total/3
-        conn=getConnection()
-        cursor=conn.cursor()
+        conn=getConnection() # ora_user사용자 연결
+        cursor=conn.cursor() # sql dev 실행
         query=f"insert into stuscore values(stuscore_seq.nextval,'{name}','{kor}','{eng}','{math}','{total}','{avg}',sysdate)"
-        cursor.execute(query)
-        conn.commit()
+        cursor.execute(query) # query문 실행
+        conn.commit() # insert, update, delete, commit 실행
         print('학생성적을 저장합니다.')
         conn.close()
 
@@ -40,7 +39,7 @@ while True:
         query = "select * from stuscore"
         cursor.execute(query)
         
-        rows=cursor.fetchall()
+        rows=cursor.fetchall() # 검색내용출력
         
         print("{}\t{}\t\t{}\t{}\t{}\t{}\t{}\t{}".format(*title))
         for row in rows:

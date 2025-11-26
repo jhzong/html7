@@ -2,7 +2,7 @@ import oracledb
 
 conn = oracledb.connect(user="ora_user",password="1111",dsn="localhost:1521/xe")
 
-cursor = cursor = conn.cursor()
+cursor = conn.cursor()
 cursor.execute("select * from stuscore order by kor desc,eng asc")
 rows=cursor.fetchall()
 

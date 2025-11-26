@@ -240,7 +240,7 @@ update stuscore set avg = total/3;
 alter table stuscore modify avg number(10,7);
 
 commit;
-
+rollback;
 select * from stuscore
 order by kor desc, eng asc
 ;
@@ -249,3 +249,6 @@ select * from stuscore;
 insert into stuscore values(
 stuscore_seq.nextval,'홍길동',100,100,99,(100+100+99),(100+100+99)/3,sysdate
 );
+
+delete stuscore where sno=102;
+select sno,name from stuscore;
