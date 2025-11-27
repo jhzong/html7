@@ -2,8 +2,8 @@ import oracledb
 # db함수
 def getConnection():
     return oracledb.connect(user='ora_user',password='1111',dsn='localhost:1521/xe')
-conn=getConnection()# ora_user로 접속
-cursor=conn.cursor()# sql dev를 실행
+# conn=getConnection()# ora_user로 접속
+# cursor=conn.cursor()# sql dev를 실행
 # print('connection :',conn)
 # conn.close()
 title=["No.","name","Kor","Eng","Math","T.sum","Avg","Sdate"]
@@ -23,6 +23,8 @@ while True:
         math=int(input('수학성적>>'))
         total=kor+eng+math
         avg=total/3
+        conn=getConnection()# ora_user로 접속
+        cursor=conn.cursor()# sql dev를 실행
         query=f"insert into stuscore values(stuscore_seq.nextval,\
             '{name}','{kor}','{eng}','{math}','{total}','{avg}',sysdate)"
         cursor.execute(query)
@@ -33,6 +35,8 @@ while True:
     
     elif choice==2:
         print('2.학생성적출력')
+        conn=getConnection()# ora_user로 접속
+        cursor=conn.cursor()# sql dev를 실행
         query='select * from stuscore order by sno'
         cursor.execute(query)
         rows=cursor.fetchall()
@@ -49,27 +53,28 @@ while True:
     elif choice==4:
         print('4.학생성적삭제')
         # 전체리스트 출력
+        conn=getConnection()# db접속
+        cursor=conn.cursor()# db접속
         query='select sno,name from stuscore order by sno'
         cursor.execute(query)
         rows=cursor.fetchall()
-        print('{}\t{}'.format(*title))        
+        print('{}\t{}'.format(*title))# 학생리스트 출력       
         print('-'*30)
         for row in rows:
             print('{}\t{}'.format(*row))
-        # 삭제할 성적의 학생번호 선택
-        sno=int(input('성적기록삭제 학생번호>>'))
-        # 삭제확인문
-        confirm=int(input(f'{sno}번 학생의 성적을 삭제할까요?(1.Y/2.N)>>'))
+        sno=int(input('성적기록삭제 학생번호>>'))# 삭제할 성적의 학생번호 선택
+        confirm=int(input(f'{sno}번 학생의 성적을 삭제할까요?(1.Y/2.N)>>'))# 삭제확인문
         if confirm==1:# 삭제
             query=f"delete stuscore where sno='{sno}'"
             cursor.execute(query)
             conn.commit()
+            conn.close()
             print('삭제완료')
         else:# 취소
             print('삭제취소')
             conn.close()
             continue
+
     else:
         print('0.프로그램종료')
-        conn.close()
         break

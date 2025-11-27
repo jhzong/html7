@@ -237,7 +237,7 @@ drop sequence employee_seq;--삭제
 
 update stuscore set avg = total/3;
 
-alter table stuscore modify avg number(10,7);
+alter table stuscore modify avg number(5,2);
 
 commit;
 rollback;
@@ -250,5 +250,4 @@ insert into stuscore values(
 stuscore_seq.nextval,'홍길동',100,100,99,(100+100+99),(100+100+99)/3,sysdate
 );
 
-delete stuscore where sno=102;
-select sno,name from stuscore;
+
