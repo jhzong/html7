@@ -49,6 +49,56 @@ while True:
             
     elif choice==3:
         print('3.학생성적수정')
+        # 전체리스트출력
+        conn=getConnection()# db접속
+        cursor=conn.cursor()# db접속
+        query="select * from stuscore order by sno"
+        cursor.execute(query)
+        rows=cursor.fetchall()
+        print('{}\t{}'.format(*title))
+        for row in rows:
+            print('{}\t{}'.format(*row))
+        # 학생/과목선택
+        sno=int(input('학생번호 입력>>'))
+        print(rows[sno-1])
+        conn.close()
+        sbj=int(input('과목선택(1.국어/2.영어/3.수학)>>'))
+        if sbj==1:# 국어
+            newscore=int(input('새로운 점수입력>>'))
+            conn=getConnection()# db접속
+            cursor=conn.cursor()# db접속
+            query=f"update stuscore set kor={newscore} where sno={sno}"
+            cursor.execute(query)
+            conn.commit()
+            conn.close()
+            
+        elif sbj==2:# 영어
+            newscore=int(input('새로운 점수입력>>'))
+            conn=getConnection()# db접속
+            cursor=conn.cursor()# db접속
+            query=f"update stuscore set eng={newscore} where sno={sno}"
+            cursor.execute(query)
+            conn.commit()
+            conn.close()
+
+        else:# 수학
+            newscore=int(input('새로운 점수입력>>'))
+            conn=getConnection()# db접속
+            cursor=conn.cursor()# db접속
+            query=f"update stuscore set math={newscore} where sno={sno}"
+            cursor.execute(query)
+            conn.commit()
+            conn.close()
+
+        # total,avg 갱신
+        conn=getConnection()# db접속
+        cursor=conn.cursor()# db접속
+        query="update stuscore set total=kor+eng+math, avg=(kor+eng+math)/3"
+        cursor.execute(query)
+        conn.commit()
+        conn.close()
+        # commit
+        print('수정완료')
     
     elif choice==4:
         print('4.학생성적삭제')

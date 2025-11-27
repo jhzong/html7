@@ -177,7 +177,7 @@ select hire_date,trunc(hire_date,'month'), last_day(hire_date) from employees;
 select sysdate,next_day(sysdate,'월') from dual;
 
 -----------------------------------------------------------------------------
---순번 구하기rank()over(order by A asc/desc)
+--**순번 구하기rank()over(order by A asc/desc)
 select * from stuscore;
 select sno,name,total,rank()over(order by total desc) rank from stuscore;
 -----------------------------------------------------------------------------
