@@ -507,20 +507,22 @@ where rownum between 1 and 20
 order by bno
 ;
 
+
+--((rownum))
 select * from
 (
 select rownum rnum,a.* from
 (select * from board2 order by bno asc) a
 )
 where rnum between 11 and 20
-;
+;--(3)
 
 select rownum rnum,a.* from
 (select * from board2 order by bno asc) a
-;-- bno로 정렬된 
+;--(2)
 
 select * from board2 order by bno asc
-;--board2를 bno순으로 정렬
+;--(1)
 
 
 delete board2 where bno=4;
@@ -532,16 +534,16 @@ delete board2 where bno=22;
 delete board2 where bno=25;
 delete board2 where bno=40;
 
---row_number()
+--((row_number()))
 select * 
 from(
 select row_number()over(order by bno asc) rnum,a.*
 from board2 a
-);
+);--(2)
 
 select row_number()over(order by bno asc) rnum,a.*
 from board2 a
-;--row_number()로 정렬된 table
+;--(1)row_number()로 정렬된 table
 --------------------------------------------------------------------------------
 
 select * from stuscore2;
@@ -559,3 +561,4 @@ from board2 a
 )
 where rnum between 21 and 30
 ;
+
