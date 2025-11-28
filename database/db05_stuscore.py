@@ -58,11 +58,15 @@ while True:
         print('{}\t{}'.format(*title))
         for row in rows:
             print('{}\t{}'.format(*row))
+        
         # 학생/과목선택
         sno=int(input('학생번호 입력>>'))
-        print(rows[sno-1])
+        print("{}\t{}\t\t{}\t{}\t{}".format(*title))
+        print("{}\t{}\t{}\t{}\t{}".format(*rows[sno-1]))
         conn.close()
         sbj=int(input('과목선택(1.국어/2.영어/3.수학)>>'))
+        
+        # 수정
         if sbj==1:# 국어
             newscore=int(input('새로운 점수입력>>'))
             conn=getConnection()# db접속
