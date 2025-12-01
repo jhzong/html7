@@ -133,7 +133,7 @@ select max(sno) from stuscore;
 select stuscore_seq.nextval from dual;
 
 --drop table stuscore3;
---delete stuscore3;
+--delete stuscore4;
 
 create table stuscore3 as select * from stuscore where 1=2;
 select * from stuscore3;
@@ -146,3 +146,44 @@ select * from stuscore
 where name like '%na%';
 
 rollback;
+
+create table stuscore4 as select * from stuscore where 1=2;
+select * from stuscore4;
+commit;
+
+--------------------------------------------------------------------------------
+-------------(**중요**)---------------------------------------------------------
+--등수 출력
+select * from stuscore;
+select sno, rank()over(order by total desc) ranks, total, rank from stuscore;
+
+--등수처리 수정
+update stuscore a set rank=(
+select ranks from
+(select sno, rank()over(order by total desc) ranks from stuscore)b
+where a.sno=b.sno);
+
+--grade 출력
+select sno,avg,b.grade from stuscore a, scoregrade b
+where avg between lowgrade and highgrade;
+
+--grade 삽입
+update stuscore set grade=(
+select grade from scoregrade
+where avg between lowgrade and highgrade);
+
+--------------------------------------------------------------------------------
+--
+
+insert into stuscore4 values(
+stuscore4_seq.nextval,name,kor,eng,math,total,avg,sysdate,'',''
+);
+
+insert into stuscore4 select * from stuscore;
+--delete stuscore4;
+drop table stuscore4;
+update stuscore4 a set rank=0;
+update stuscore4 a set grade='';
+select * from stuscore4;
+commit;
+alter table stuscore4 modify sdate visible;
