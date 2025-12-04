@@ -73,6 +73,12 @@ def stuDelete():
         print('검색결과 없음...')
 
 # 5.성적검색
+def stuSearch():
+    name=input('학생이름 검색>>')
+    conn=getConnection()
+    cursor=conn.cursor()
+    query=""
+    cursor.execute(query)
 
 # 6.성적정렬
 

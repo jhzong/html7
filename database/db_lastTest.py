@@ -3,65 +3,6 @@ from db_lastConn import *
 
 title=['번호','이름','국어','영어','수학','합계','평균','날짜','등수','등급']
 
-# 8.등급처리----------------------------------------------------------------------------
-def stuGrade():
-    conn=getConnection()
-    cursor=conn.cursor()
-    query=f"""
-    update stuscore set grade=(
-    select grade from scoregrade
-    where avg between lowgrade and highgrade)
-    """
-    cursor.execute(query)
-    
-    conn.commit()
-    conn.close()
-    print('등급처리완료')
-
-
-# 7.등수처리----------------------------------------------------------------------------
-def stuRank():
-    conn=getConnection()
-    cursor=conn.cursor()
-    query=f"""
-    update stuscore a set rank=(select ranks from
-    (select sno, rank()over(order by total desc) ranks from stuscore)b
-    where a.sno=b.sno)
-    """
-    cursor.execute(query)
-    
-    conn.commit()
-    conn.close()
-    print('등수처리완료')
-
-
-
-
-# 6.학생성적 정렬------------------------------------------------------------------------
-def stuOrder():
-    print('1.학생이름')
-    print('2.학생성적')
-    choice=int(input('번호입력>>'))
-    conn=getConnection()
-    cursor=conn.cursor()
-    if choice==1:
-        query=f"select * from stuscore order by name"
-        cursor.execute(query)
-    else:
-        query=f"select * from stuscore order by total desc"
-        cursor.execute(query)
-    
-    rows=cursor.fetchall()
-    print('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}'.format(*title))
-    print('-'*80)
-    if len(rows)>0:
-        for r in rows:
-            print(f'{r[0]}\t{r[1]}\t{r[2]}\t{r[3]}\t{r[4]}\t{r[5]}\
-                \t{r[6]:.2f}\t{r[7].strftime('%y-%m-%d')}\t{r[8]}\t{r[9]}'.format(*r))
-
-
-
-
 # 1.성적입력-stuscore3------------------------------------------------------------------
 def stuInput():
     name=input('이름 입력>>')
@@ -207,6 +148,54 @@ def stuSearch():
     conn.commit()
     conn.close()
 
-# test호출
-# stuInput()
-# stuOutput()
+# 6.학생성적 정렬------------------------------------------------------------------------
+def stuOrder():
+    print('1.학생이름')
+    print('2.학생성적')
+    choice=int(input('번호입력>>'))
+    conn=getConnection()
+    cursor=conn.cursor()
+    if choice==1:
+        query=f"select * from stuscore order by name"
+        cursor.execute(query)
+    else:
+        query=f"select * from stuscore order by total desc"
+        cursor.execute(query)
+    
+    rows=cursor.fetchall()
+    print('{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}'.format(*title))
+    print('-'*80)
+    if len(rows)>0:
+        for r in rows:
+            print(f'{r[0]}\t{r[1]}\t{r[2]}\t{r[3]}\t{r[4]}\t{r[5]}\
+                \t{r[6]:.2f}\t{r[7].strftime('%y-%m-%d')}\t{r[8]}\t{r[9]}'.format(*r))
+
+# 7.등수처리----------------------------------------------------------------------------
+def stuRank():
+    conn=getConnection()
+    cursor=conn.cursor()
+    query=f"""
+    update stuscore a set rank=(select ranks from
+    (select sno, rank()over(order by total desc) ranks from stuscore)b
+    where a.sno=b.sno)
+    """
+    cursor.execute(query)
+    
+    conn.commit()
+    conn.close()
+    print('등수처리완료')
+
+# 8.등급처리----------------------------------------------------------------------------
+def stuGrade():
+    conn=getConnection()
+    cursor=conn.cursor()
+    query=f"""
+    update stuscore set grade=(
+    select grade from scoregrade
+    where avg between lowgrade and highgrade)
+    """
+    cursor.execute(query)
+    
+    conn.commit()
+    conn.close()
+    print('등급처리완료')
